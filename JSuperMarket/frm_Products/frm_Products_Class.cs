@@ -10,6 +10,7 @@ namespace JSuperMarket.frm_Products
         private string TableName = "dbo.tbl_SM_Products";
         JSDataAccess JSDA = new JSDataAccess();
         public string LastError = "";
+
         public int _PID = 0;
         public string _PName = "";
         public int _PUID = 0;
@@ -69,7 +70,7 @@ namespace JSuperMarket.frm_Products
 
             this._PName = SelectedRecord.Rows[0]["PName"].ToString();
             Int32.TryParse(SelectedRecord.Rows[0]["ProductsUnitID"].ToString(), out this._PUID);
-            Int32.TryParse(SelectedRecord.Rows[0]["ProductCategoryID"].ToString(), out this._PUID);
+            Int32.TryParse(SelectedRecord.Rows[0]["ProductCategoryID"].ToString(), out this._PCID);
             this._PSize = SelectedRecord.Rows[0]["PSize"].ToString();
             DateTime.TryParse(SelectedRecord.Rows[0]["PExpDate"].ToString(), out this._PExpDate);
 
@@ -86,9 +87,25 @@ namespace JSuperMarket.frm_Products
             Int32.TryParse(SelectedRecord.Rows[0]["PDiscount"].ToString(), out this._PDiscount);
 
         }
+        
         public DataTable DBFindBarcode(string ProductBarcode)
         {
-            return JSDA.DBSelectBySQL("Select * from dbo.View_SM_Barcodes where PBarCode = " + ProductBarcode);
+            LastError += JSDA._LastError;
+            return JSDA.DBSelectBySQL("Select * from dbo.View_SM_Barcodes where PBarCode = N'" + ProductBarcode + "'");
+        }
+
+        public DataTable DBCategoryList()
+        {
+            return JSDA.DBSelectBySQL("SELECT dbo.tbl_SM_ProductsCategory.ProductCategoryID, dbo.tbl_SM_ProductsCategory.ProductCategory"
+                + " FROM dbo.tbl_SM_ProductsCategory RIGHT OUTER JOIN"
+                + " dbo.tbl_SM_Products ON dbo.tbl_SM_ProductsCategory.ProductCategoryID = dbo.tbl_SM_Products.ProductCategoryID"
+                + " GROUP BY dbo.tbl_SM_ProductsCategory.ProductCategoryID, dbo.tbl_SM_ProductsCategory.ProductCategory");
+        }
+
+        public DataTable DBFilterByCategory(int CategoryID)
+        {
+            return JSDA.DBSelectBySQL("Select * from dbo.View_SM_Products where ProductCategoryID = " + CategoryID );
+                
         }
     }
 }

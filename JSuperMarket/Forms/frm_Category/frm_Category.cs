@@ -1,87 +1,93 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Base;
 
 namespace JSuperMarket
 {
-    public partial class frm_Category : JSuperMarket.frm_base_ShowData
+    public partial class FrmCategory : FrmBaseShowData
     {
-        frm_Category_Class RelatedClass = new frm_Category_Class();
+        readonly FrmCategoryClass _relatedClass = new FrmCategoryClass();
         public void UpdateDateGrid()
         {
-            jscDataGrid1.DataSource = RelatedClass.DBSelect();
-            jscDataGrid1.AutoGenerateColumns = false;
-            jscDataGrid1.Columns["ProductCategoryID"].Visible = false;
-            jscDataGrid1.Columns["ModifiedDate"].Visible = false;
+            jscDataGrid1.DataSource = _relatedClass.DBSelect();
         }
 
-        public frm_Category()
+        public FrmCategory()
         {
             InitializeComponent();
         }
 
 
-        private void frm_Category_Load(object sender, EventArgs e)
+        private void FrmCategoryLoad(object sender, EventArgs e)
         {
             UpdateDateGrid();
         }
         
-        private void jscHome1_Click(object sender, EventArgs e)
+        private void JSCHome1Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void jscAdd1_Click(object sender, EventArgs e)
+        readonly frm_Category_Add _addform = new frm_Category_Add();
+        private void JSCAdd1Click(object sender, EventArgs e)
         {
-            frm_Category_Add Addform = new frm_Category_Add();
-            Addform.Owner = this;
-            Addform.ShowDialog();
+            _addform.Owner = this;
+            _addform.ShowDialog();
             jscDataGrid1.Focus();
         }
 
-        private void jscUpdate1_Click(object sender, EventArgs e)
+        private void JSCUpdate1Click(object sender, EventArgs e)
         {
             if (jscDataGrid1.CurrentRow == null)
                 return;
 
-            Int32.TryParse(jscDataGrid1[0, jscDataGrid1.CurrentRow.Index].Value.ToString(), out RelatedClass._CID);
-            RelatedClass.DBFind();
-            frm_Category_Edit EditForm = new frm_Category_Edit(RelatedClass._CID, RelatedClass._CName);
+            Int32.TryParse(jscDataGrid1["ProductCategoryID", jscDataGrid1.CurrentRow.Index].Value.ToString(), out _relatedClass.Cid);
+            _relatedClass.DBFind();
+            var editForm = new frm_Category_Edit(_relatedClass.Cid, _relatedClass.CName);
             //EditForm.txtValue1.Text = RelatedClass._CName;
             //EditForm.txtValue1.Tag = RelatedClass._CID;
-            EditForm.ShowDialog();
+            editForm.ShowDialog();
             UpdateDateGrid();
             jscDataGrid1.Focus();
         }
 
-        private void jscDelete1_Click(object sender, EventArgs e)
+        private void JSCDelete1Click(object sender, EventArgs e)
         {
-            
+
             if (jscDataGrid1.CurrentRow == null)
                 return;
-            if (MessageBox.Show("مطمئنید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+
+            int findedRecordCount = _relatedClass.DBSearchRecord(jscDataGrid1.Rows[jscDataGrid1.CurrentRow.Index].Cells["ProductCategoryID"].Value.ToString());
+            if (findedRecordCount > 0)
+            {
+                MessageBox.Show(@"از این واحد در " + findedRecordCount + @" رکورد جدول کالا استفاده شده است" + Environment.NewLine
+                    + @"برای حذف واحد ابتدا محصولاتی که از واحد استفاده نموده اند را تصحیح فرمایید", @"در " + findedRecordCount + @" مورد استفاده شده است"
+                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            if (MessageBox.Show(@"مطمئنید؟", @"حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
-            Int32.TryParse(jscDataGrid1[0, jscDataGrid1.CurrentRow.Index].Value.ToString(), out RelatedClass._CID);
-            RelatedClass.DBDelete();
+            Int32.TryParse(jscDataGrid1[0, jscDataGrid1.CurrentRow.Index].Value.ToString(), out _relatedClass.Cid);
+            _relatedClass.DBDelete();
             UpdateDateGrid();
             jscDataGrid1.Focus();
         }
 
-        private void jscDataGrid1_KeyDown(object sender, KeyEventArgs e)
+        private void JSCDataGrid1KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
-            { jscDelete1_Click(null, null); }
+            { JSCDelete1Click(null, null); }
         }
 
-
-
-
-
-
+        private void FrmCategoryKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2) JSCUpdate1Click(null, null);
+            if (e.KeyCode == Keys.F8) JSCHome1Click(null, null);
+            if (e.KeyCode == Keys.F4 && e.Alt == false) JSCAdd1Click(null, null);
+            if (e.KeyCode == Keys.F12) UpdateDateGrid();
+        }
     }
 }

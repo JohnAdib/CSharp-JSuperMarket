@@ -1,6 +1,6 @@
-﻿namespace JSuperMarket
+﻿namespace JSuperMarket.Forms.frm_Base
 {
-    partial class frm_base_ShowData
+    partial class FrmBaseShowData
     {
         /// <summary>
         /// Required designer variable.
@@ -47,7 +47,7 @@
             this.juC_MainMenu1.Size = new System.Drawing.Size(406, 31);
             this.juC_MainMenu1.TabIndex = 0;
             // 
-            // frm_base_ShowData
+            // FrmBaseShowData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -58,14 +58,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "frm_base_ShowData";
+            this.Name = "FrmBaseShowData";
             this.Opacity = 0.97D;
-            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "سامانه مدیریت سوپر سعید";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingEffect);
-            this.Load += new System.EventHandler(this.frm_base_ShowData_Load);
+            this.Load += new System.EventHandler(this.FrmBaseShowDataLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

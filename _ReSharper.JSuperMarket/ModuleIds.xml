@@ -1,0 +1,5 @@
+<Modules>
+  <Module PersistentId="3356E13C-5550-41FF-9EF2-C0C64E1C1790" ModuleId="JSuperMarket" />
+  <Module PersistentId="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Windows.Forms" />
+  <Module PersistentId="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System.Windows.Forms_1" />
+</Modules>

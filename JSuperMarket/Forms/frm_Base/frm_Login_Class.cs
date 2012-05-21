@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Data;
+using JSuperMarket.Utility;
 
-namespace JSuperMarket
+namespace JSuperMarket.Forms.frm_Base
 {
-    class frm_Login_Class
+    class FrmLoginClass
     {
-        JSDataAccess JSDA = new JSDataAccess();
-        
+        readonly JSDataAccess _jsda = new JSDataAccess();
+        public string ErrorMessage = "";
         public DataTable DBUsers()
         {
-            DataTable UsersData = new DataTable();
-            UsersData = JSDA.DBSelectBySQL("Select * from dbo.tbl_DB_Users");
-            return UsersData;
+            _jsda.IsExpress = false;
+            _jsda.ShowFriendlyMessage = false;
+            DataTable usersData = _jsda.DBSelectBySQL("Select * from dbo.tbl_DB_Users ORDER BY ModifiedDate");
+            ErrorMessage = _jsda.LastError;
+            return usersData;
         }
-        public bool TrustUser(string User, string Pass)
+
+        public bool TrustUser(string user, string pass)
         {
-            string SQL= string.Format("Select count(*) From dbo.tbl_DB_Users where UserCode = '{0}' and PassCode = '{1}'", User, Pass);
-            DataTable dt = new DataTable();
-            dt = JSDA.DBSelectBySQL(SQL);
+            string sql= string.Format("Select count(*) From dbo.tbl_DB_Users where UserCode = '{0}' and PassCode = '{1}'", user, pass);
+            DataTable dt = _jsda.DBSelectBySQL(sql);
             if (dt.Rows[0][0].ToString() == "1") return true;
             return false;                        //else
         }

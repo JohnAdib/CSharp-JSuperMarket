@@ -1,6 +1,6 @@
 ﻿namespace JSuperMarket.frm_Products
 {
-    partial class frm_Products
+    partial class FrmProducts
     {
         /// <summary>
         /// Required designer variable.
@@ -28,15 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Products));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducts));
             this.lblFormTitle = new JSuperMarket.JSCLabel();
             this.jscDataGrid1 = new JSuperMarket.JSCDataGrid();
             this.jscAdd1 = new JSuperMarket.JSCAdd();
             this.jscUpdate1 = new JSuperMarket.JSCUpdate();
             this.jscDelete1 = new JSuperMarket.JSCDelete();
             this.jscHome1 = new JSuperMarket.JSCHome();
+            this.jscCmbCategory = new JSuperMarket.JSCComboBox();
+            this.jscLabel1 = new JSuperMarket.JSCLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.jscDataDesc = new JSuperMarket.JSCLabel();
+            this.jscHighlightTimer = new JSuperMarket.JSCTimer();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductsUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +55,7 @@
             this.PManufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.jscDataGrid1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFormTitle
@@ -75,8 +84,11 @@
             this.jscDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jscDataGrid1.ColumnHeadersVisible = false;
             this.jscDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.PBarCode,
             this.PName,
             this.ProductCategory,
+            this.ProductCategoryID,
             this.ProductsUnit,
             this.PSize,
             this.PPrice,
@@ -87,7 +99,8 @@
             this.PManufacturer,
             this.PDesc});
             this.jscDataGrid1.GridColor = System.Drawing.SystemColors.Menu;
-            this.jscDataGrid1.Location = new System.Drawing.Point(109, 39);
+            this.jscDataGrid1.JSCustomSetting = true;
+            this.jscDataGrid1.Location = new System.Drawing.Point(109, 112);
             this.jscDataGrid1.MultiSelect = false;
             this.jscDataGrid1.Name = "jscDataGrid1";
             this.jscDataGrid1.ReadOnly = true;
@@ -96,9 +109,9 @@
             this.jscDataGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jscDataGrid1.Size = new System.Drawing.Size(840, 306);
             this.jscDataGrid1.StandardTab = true;
-            this.jscDataGrid1.TabIndex = 25;
+            this.jscDataGrid1.TabIndex = 1;
             this.jscDataGrid1.VirtualMode = true;
-            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.jscDataGrid1_KeyDown);
+            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JscDataGrid1KeyDown);
             // 
             // jscAdd1
             // 
@@ -116,7 +129,7 @@
             this.jscAdd1.Text = "اضافه کردن";
             this.jscAdd1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscAdd1.UseVisualStyleBackColor = false;
-            this.jscAdd1.Click += new System.EventHandler(this.jscAdd1_Click);
+            this.jscAdd1.Click += new System.EventHandler(this.JscAdd1Click);
             // 
             // jscUpdate1
             // 
@@ -133,7 +146,7 @@
             this.jscUpdate1.Text = "به روزرسانی";
             this.jscUpdate1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscUpdate1.UseVisualStyleBackColor = false;
-            this.jscUpdate1.Click += new System.EventHandler(this.jscUpdate1_Click);
+            this.jscUpdate1.Click += new System.EventHandler(this.JscUpdate1Click);
             // 
             // jscDelete1
             // 
@@ -151,7 +164,7 @@
             this.jscDelete1.Text = "حذف";
             this.jscDelete1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscDelete1.UseVisualStyleBackColor = false;
-            this.jscDelete1.Click += new System.EventHandler(this.jscDelete1_Click);
+            this.jscDelete1.Click += new System.EventHandler(this.JscDelete1Click);
             // 
             // jscHome1
             // 
@@ -169,7 +182,80 @@
             this.jscHome1.Text = "بازگشت";
             this.jscHome1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscHome1.UseVisualStyleBackColor = false;
-            this.jscHome1.Click += new System.EventHandler(this.jscHome1_Click);
+            this.jscHome1.Click += new System.EventHandler(this.JscHome1Click);
+            // 
+            // jscCmbCategory
+            // 
+            this.jscCmbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.jscCmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.jscCmbCategory.FormattingEnabled = true;
+            this.jscCmbCategory.Location = new System.Drawing.Point(6, 21);
+            this.jscCmbCategory.Name = "jscCmbCategory";
+            this.jscCmbCategory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.jscCmbCategory.Size = new System.Drawing.Size(253, 29);
+            this.jscCmbCategory.TabIndex = 0;
+            this.jscCmbCategory.SelectedIndexChanged += new System.EventHandler(this.JscCmbCategorySelectedIndexChanged);
+            // 
+            // jscLabel1
+            // 
+            this.jscLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.jscLabel1.AutoSize = true;
+            this.jscLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.jscLabel1.Location = new System.Drawing.Point(265, 24);
+            this.jscLabel1.Name = "jscLabel1";
+            this.jscLabel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.jscLabel1.Size = new System.Drawing.Size(569, 21);
+            this.jscLabel1.TabIndex = 31;
+            this.jscLabel1.Text = "دسته بندی را از لیست روبرو انتخاب نموده تا فقط محصولات موجود در آن دسته نمایش داد" +
+    "ه شوند برای غیرفعال کردن فیلتر F12 را بفشارید";
+            this.jscLabel1.Click += new System.EventHandler(this.JscLabel1Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.jscLabel1);
+            this.groupBox1.Controls.Add(this.jscCmbCategory);
+            this.groupBox1.Location = new System.Drawing.Point(109, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(840, 62);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "فیلتر بندی";
+            // 
+            // jscDataDesc
+            // 
+            this.jscDataDesc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.jscDataDesc.BackColor = System.Drawing.Color.Transparent;
+            this.jscDataDesc.Location = new System.Drawing.Point(109, 421);
+            this.jscDataDesc.Name = "jscDataDesc";
+            this.jscDataDesc.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.jscDataDesc.Size = new System.Drawing.Size(840, 21);
+            this.jscDataDesc.TabIndex = 0;
+            this.jscDataDesc.Text = "تعداد --- کالا ثبت شده است";
+            this.jscDataDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // jscHighlightTimer
+            // 
+            this.jscHighlightTimer.Interval = 300;
+            this.jscHighlightTimer.MaxTickTimes = 3;
+            this.jscHighlightTimer.TickTimes = 0;
+            this.jscHighlightTimer.Tick += new System.EventHandler(this.JscHighlightTimerTick);
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            this.ProductID.HeaderText = "کد کالا";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            this.ProductID.Visible = false;
+            // 
+            // PBarCode
+            // 
+            this.PBarCode.DataPropertyName = "PBarCode";
+            this.PBarCode.HeaderText = "بارکد";
+            this.PBarCode.Name = "PBarCode";
+            this.PBarCode.ReadOnly = true;
+            this.PBarCode.Visible = false;
             // 
             // PName
             // 
@@ -189,6 +275,14 @@
             this.ProductCategory.Name = "ProductCategory";
             this.ProductCategory.ReadOnly = true;
             this.ProductCategory.Width = 70;
+            // 
+            // ProductCategoryID
+            // 
+            this.ProductCategoryID.DataPropertyName = "ProductCategoryID";
+            this.ProductCategoryID.HeaderText = "کد دسته";
+            this.ProductCategoryID.Name = "ProductCategoryID";
+            this.ProductCategoryID.ReadOnly = true;
+            this.ProductCategoryID.Visible = false;
             // 
             // ProductsUnit
             // 
@@ -233,6 +327,7 @@
             this.PBuyPrice.MinimumWidth = 85;
             this.PBuyPrice.Name = "PBuyPrice";
             this.PBuyPrice.ReadOnly = true;
+            this.PBuyPrice.Visible = false;
             this.PBuyPrice.Width = 85;
             // 
             // PStock
@@ -275,22 +370,31 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.CancelButton = this.jscHome1;
-            this.ClientSize = new System.Drawing.Size(961, 358);
+            this.ClientSize = new System.Drawing.Size(961, 450);
+            this.Controls.Add(this.jscDataDesc);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.jscHome1);
             this.Controls.Add(this.jscDelete1);
             this.Controls.Add(this.jscUpdate1);
             this.Controls.Add(this.jscAdd1);
             this.Controls.Add(this.jscDataGrid1);
             this.Controls.Add(this.lblFormTitle);
-            this.Name = "frm_Products";
-            this.Load += new System.EventHandler(this.frm_Products_Load);
+            this.KeyPreview = true;
+            this.Name = "FrmProducts";
+            this.Load += new System.EventHandler(this.FrmProductsLoad);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmProductsKeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProductsKeyPress);
             this.Controls.SetChildIndex(this.lblFormTitle, 0);
             this.Controls.SetChildIndex(this.jscDataGrid1, 0);
             this.Controls.SetChildIndex(this.jscAdd1, 0);
             this.Controls.SetChildIndex(this.jscUpdate1, 0);
             this.Controls.SetChildIndex(this.jscDelete1, 0);
             this.Controls.SetChildIndex(this.jscHome1, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.jscDataDesc, 0);
             ((System.ComponentModel.ISupportInitialize)(this.jscDataGrid1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,8 +408,16 @@
         private JSCUpdate jscUpdate1;
         private JSCDelete jscDelete1;
         private JSCHome jscHome1;
+        private JSCComboBox jscCmbCategory;
+        private JSCLabel jscLabel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private JSCLabel jscDataDesc;
+        private JSCTimer jscHighlightTimer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategoryID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductsUnit;
         private System.Windows.Forms.DataGridViewTextBoxColumn PSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn PPrice;

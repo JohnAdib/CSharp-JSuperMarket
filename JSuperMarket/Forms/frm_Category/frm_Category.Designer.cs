@@ -1,6 +1,8 @@
-﻿namespace JSuperMarket
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket
 {
-    partial class frm_Category
+    partial class FrmCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +30,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Category));
-            this.jscAdd1 = new JSuperMarket.JSCAdd();
-            this.jscUpdate1 = new JSuperMarket.JSCUpdate();
-            this.jscDelete1 = new JSuperMarket.JSCDelete();
-            this.jscHome1 = new JSuperMarket.JSCHome();
-            this.jscDataGrid1 = new JSuperMarket.JSCDataGrid();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategory));
+            this.jscAdd1 = new JSCAdd();
+            this.jscUpdate1 = new JSCUpdate();
+            this.jscDelete1 = new JSCDelete();
+            this.jscHome1 = new JSCHome();
+            this.jscDataGrid1 = new JSCDataGrid();
+            this.jscLabel1 = new JSCLabel();
             this.ProductCategor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jscLabel1 = new JSuperMarket.JSCLabel();
+            this.ProductCategoryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.jscDataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +58,7 @@
             this.jscAdd1.Text = "اضافه کردن";
             this.jscAdd1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscAdd1.UseVisualStyleBackColor = false;
-            this.jscAdd1.Click += new System.EventHandler(this.jscAdd1_Click);
+            this.jscAdd1.Click += new System.EventHandler(this.JSCAdd1Click);
             // 
             // jscUpdate1
             // 
@@ -72,7 +75,7 @@
             this.jscUpdate1.Text = "به روزرسانی";
             this.jscUpdate1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscUpdate1.UseVisualStyleBackColor = false;
-            this.jscUpdate1.Click += new System.EventHandler(this.jscUpdate1_Click);
+            this.jscUpdate1.Click += new System.EventHandler(this.JSCUpdate1Click);
             // 
             // jscDelete1
             // 
@@ -90,7 +93,7 @@
             this.jscDelete1.Text = "حذف";
             this.jscDelete1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscDelete1.UseVisualStyleBackColor = false;
-            this.jscDelete1.Click += new System.EventHandler(this.jscDelete1_Click);
+            this.jscDelete1.Click += new System.EventHandler(this.JSCDelete1Click);
             // 
             // jscHome1
             // 
@@ -108,7 +111,7 @@
             this.jscHome1.Text = "بازگشت";
             this.jscHome1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscHome1.UseVisualStyleBackColor = false;
-            this.jscHome1.Click += new System.EventHandler(this.jscHome1_Click);
+            this.jscHome1.Click += new System.EventHandler(this.JSCHome1Click);
             // 
             // jscDataGrid1
             // 
@@ -123,8 +126,10 @@
             this.jscDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jscDataGrid1.ColumnHeadersVisible = false;
             this.jscDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductCategor});
+            this.ProductCategor,
+            this.ProductCategoryID});
             this.jscDataGrid1.GridColor = System.Drawing.SystemColors.Menu;
+            this.jscDataGrid1.JSCustomSetting = true;
             this.jscDataGrid1.Location = new System.Drawing.Point(113, 39);
             this.jscDataGrid1.MultiSelect = false;
             this.jscDataGrid1.Name = "jscDataGrid1";
@@ -136,15 +141,7 @@
             this.jscDataGrid1.StandardTab = true;
             this.jscDataGrid1.TabIndex = 11;
             this.jscDataGrid1.VirtualMode = true;
-            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.jscDataGrid1_KeyDown);
-            // 
-            // ProductCategor
-            // 
-            this.ProductCategor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductCategor.DataPropertyName = "ProductCategory";
-            this.ProductCategor.HeaderText = "دسته بندی اصلی";
-            this.ProductCategor.Name = "ProductCategor";
-            this.ProductCategor.ReadOnly = true;
+            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JSCDataGrid1KeyDown);
             // 
             // jscLabel1
             // 
@@ -159,6 +156,22 @@
             this.jscLabel1.TabIndex = 21;
             this.jscLabel1.Text = "دسته بندی اصلی";
             // 
+            // ProductCategor
+            // 
+            this.ProductCategor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductCategor.DataPropertyName = "ProductCategory";
+            this.ProductCategor.HeaderText = "دسته بندی اصلی";
+            this.ProductCategor.Name = "ProductCategor";
+            this.ProductCategor.ReadOnly = true;
+            // 
+            // ProductCategoryID
+            // 
+            this.ProductCategoryID.DataPropertyName = "ProductCategoryID";
+            this.ProductCategoryID.HeaderText = "کد دسته ";
+            this.ProductCategoryID.Name = "ProductCategoryID";
+            this.ProductCategoryID.ReadOnly = true;
+            this.ProductCategoryID.Visible = false;
+            // 
             // frm_Category
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
@@ -170,8 +183,10 @@
             this.Controls.Add(this.jscDelete1);
             this.Controls.Add(this.jscUpdate1);
             this.Controls.Add(this.jscAdd1);
-            this.Name = "frm_Category";
-            this.Load += new System.EventHandler(this.frm_Category_Load);
+            this.KeyPreview = true;
+            this.Name = "FrmCategory";
+            this.Load += new System.EventHandler(this.FrmCategoryLoad);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCategoryKeyDown);
             this.Controls.SetChildIndex(this.jscAdd1, 0);
             this.Controls.SetChildIndex(this.jscUpdate1, 0);
             this.Controls.SetChildIndex(this.jscDelete1, 0);
@@ -191,7 +206,8 @@
         private JSCDelete jscDelete1;
         private JSCHome jscHome1;
         private JSCDataGrid jscDataGrid1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategor;
         private JSCLabel jscLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCategoryID;
     }
 }

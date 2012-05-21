@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace JSuperMarket
+namespace JSuperMarket.Forms.frm_Base
 {
-    public partial class frm_base_AddData : Form
+    public partial class FrmBaseAddData : Form
     {
-        public frm_base_AddData()
+        public FrmBaseAddData()
         {
             InitializeComponent();
         }
 
-        private void frm_base_AddData_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void ClosingEffect(object sender, FormClosingEventArgs e)
         {
@@ -36,6 +25,11 @@ namespace JSuperMarket
 
             }
              */
+        }
+
+        private void FrmBaseAddDataLoad(object sender, System.EventArgs e)
+        {
+            Text = Properties.Settings.Default.AppNamePre + @" " + Properties.Settings.Default.AppName;
         }
     }
 }

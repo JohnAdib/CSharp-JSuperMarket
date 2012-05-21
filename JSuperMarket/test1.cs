@@ -1,20 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Base;
 
 namespace JSuperMarket
 {
-    public partial class test1 : frm_base_ShowData
+    public partial class Test1 : FrmBaseShowData
     {
-        public test1()
+        public Test1()
         {
 
             InitializeComponent();
+        }
+
+        private void JscAdd1Click(object sender, EventArgs e)
+        {
+            var newPage = new TabPage
+                              {
+                                  Name = "salam",
+                                  Text = @"سلام",
+                                  BackgroundImage = Properties.Resources.LightBackgroundTile
+                              };
+            tabControl1.TabPages.Add(newPage);
         }
 
 

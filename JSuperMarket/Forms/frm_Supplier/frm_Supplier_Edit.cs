@@ -5,16 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Base;
 
 namespace JSuperMarket.frm_Supplier
 {
-    public partial class frm_Supplier_Edit : JSuperMarket.frm_base_AddData
+    public partial class frm_Supplier_Edit : FrmBaseAddData
     {
-        frm_Supplier_Class RelatedClass = new frm_Supplier_Class();
+        FrmSupplierClass RelatedClass = new FrmSupplierClass();
         public frm_Supplier_Edit(int SID, string SName, string SAddress, string STel, string SDesc, string SVisitor)
         {
             InitializeComponent();
-            this.RelatedClass._SID = SID;
+            this.RelatedClass.Sid = SID;
 
             jscTextBox1.Text = SName;
             jscTextBox2.Text = SVisitor;
@@ -28,11 +29,11 @@ namespace JSuperMarket.frm_Supplier
             if (jscTextBox1.Text == "")
                 return;
 
-            RelatedClass._SName = jscTextBox1.Text;
-            RelatedClass._SVisitor = jscTextBox2.Text;
-            RelatedClass._SAddress = jscTextBox3.Text;
-            RelatedClass._STel = jscTextBox4.Text;
-            RelatedClass._SDesc = jscTextBox5.Text;
+            RelatedClass.SName = jscTextBox1.Text;
+            RelatedClass.SVisitor = jscTextBox2.Text;
+            RelatedClass.SAddress = jscTextBox3.Text;
+            RelatedClass.STel = jscTextBox4.Text;
+            RelatedClass.SDesc = jscTextBox5.Text;
 
             RelatedClass.DBUpdate();
             this.Close();

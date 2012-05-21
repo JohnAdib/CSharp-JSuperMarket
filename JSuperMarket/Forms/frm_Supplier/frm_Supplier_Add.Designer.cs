@@ -1,4 +1,6 @@
-﻿namespace JSuperMarket.frm_Supplier
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket.frm_Supplier
 {
     partial class frm_Supplier_Add
     {
@@ -29,19 +31,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Supplier_Add));
-            this.lblFormTitle = new JSuperMarket.JSCLabel();
-            this.jscLabel1 = new JSuperMarket.JSCLabel();
-            this.jscLabel2 = new JSuperMarket.JSCLabel();
-            this.jscLabel3 = new JSuperMarket.JSCLabel();
-            this.jscLabel4 = new JSuperMarket.JSCLabel();
-            this.jscLabel5 = new JSuperMarket.JSCLabel();
-            this.jscTextBox1 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox2 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox3 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox4 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox5 = new JSuperMarket.JSCTextBox();
-            this.jscAdd1 = new JSuperMarket.JSCAdd();
-            this.jscClose1 = new JSuperMarket.JSCClose();
+            this.lblFormTitle = new JSCLabel();
+            this.jscLabel1 = new JSCLabel();
+            this.jscLabel2 = new JSCLabel();
+            this.jscLabel3 = new JSCLabel();
+            this.jscLabel4 = new JSCLabel();
+            this.jscLabel5 = new JSCLabel();
+            this.jscTextBox1 = new JSCTextBox();
+            this.jscTextBox2 = new JSCTextBox();
+            this.jscTextBox3 = new JSCTextBox();
+            this.jscTextBox4 = new JSCTextBox();
+            this.jscTextBox5 = new JSCTextBox();
+            this.jscAdd1 = new JSCAdd();
+            this.jscClose1 = new JSCClose();
             this.SuspendLayout();
             // 
             // lblFormTitle
@@ -180,7 +182,7 @@
             this.jscAdd1.Text = "اضافه کردن";
             this.jscAdd1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscAdd1.UseVisualStyleBackColor = false;
-            this.jscAdd1.Click += new System.EventHandler(this.jscAdd1_Click);
+            this.jscAdd1.Click += new System.EventHandler(this.JSCAdd1Click);
             // 
             // jscClose1
             // 
@@ -198,7 +200,7 @@
             this.jscClose1.Text = "بستن";
             this.jscClose1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscClose1.UseVisualStyleBackColor = false;
-            this.jscClose1.Click += new System.EventHandler(this.jscClose1_Click);
+            this.jscClose1.Click += new System.EventHandler(this.JSCClose1Click);
             // 
             // frm_Supplier_Add
             // 
@@ -220,7 +222,7 @@
             this.Controls.Add(this.jscLabel1);
             this.Controls.Add(this.lblFormTitle);
             this.Name = "frm_Supplier_Add";
-            this.Load += new System.EventHandler(this.frm_Supplier_Add_Load);
+            this.Load += new System.EventHandler(this.FrmSupplierAddLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

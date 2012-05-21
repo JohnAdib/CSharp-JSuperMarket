@@ -11,8 +11,7 @@
     <RootNamespace>JSuperMarket</RootNamespace>
     <AssemblyName>JSuperMarket</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -31,12 +30,12 @@
     <ProductName>JSSuperMarket Manager</ProductName>
     <PublisherName>Javad Evazzadeh</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.5.0.%2a</ApplicationVersion>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>2.5.3.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,7 +67,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>false</GenerateManifests>
+    <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -84,7 +83,6 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,6 +91,13 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010Silver, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="TelerikCommon, Version=2011.3.11.1219, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\frm_Base\frm_base_ShowData.cs">
@@ -139,24 +144,37 @@
     <Compile Include="Forms\frm_Category\frm_Category_Edit.Designer.cs">
       <DependentUpon>frm_Category_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers.Designer.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers.Designer.cs">
       <DependentUpon>frm_Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers_Add.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers_Add.Designer.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers_Add.Designer.cs">
       <DependentUpon>frm_Customers_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers_Class.cs" />
-    <Compile Include="frm_Customers\frm_Customers_Edit.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers_Class.cs" />
+    <Compile Include="Forms\frm_Customers\frm_Customers_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Customers\frm_Customers_Edit.Designer.cs">
+    <Compile Include="Forms\frm_Customers\frm_Customers_Edit.Designer.cs">
       <DependentUpon>frm_Customers_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Purchase\frm_Purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Purchase\frm_Purchase.Designer.cs">
+      <DependentUpon>frm_Purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Purchase\frm_Purchase_Class.cs" />
+    <Compile Include="Forms\frm_Sales\frm_Sales_Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales_Setting.Designer.cs">
+      <DependentUpon>frm_Sales_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frm_Supplier\frm_Supplier.cs">
       <SubType>Form</SubType>
@@ -196,24 +214,63 @@
     <Compile Include="Forms\frm_Units\frm_Units_Edit.Designer.cs">
       <DependentUpon>frm_Units_Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Products\frm_Products.cs">
+    <Compile Include="Forms\Rpt_Sales\frm_Sales_Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Products\frm_Products.Designer.cs">
+    <Compile Include="Forms\Rpt_Sales\frm_Sales_Report.Designer.cs">
+      <DependentUpon>frm_Sales_Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Rpt_Sales\Rpt_Sales_Class.cs" />
+    <Compile Include="frm_Other\frm_AboutJS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Other\frm_AboutJS.Designer.cs">
+      <DependentUpon>frm_AboutJS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Products\frm_Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Products\frm_Products.Designer.cs">
       <DependentUpon>frm_Products.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Products\frm_Products_Add.cs">
+    <Compile Include="Forms\frm_Products\frm_Products_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Products\frm_Products_Add.Designer.cs">
+    <Compile Include="Forms\frm_Products\frm_Products_Add.Designer.cs">
       <DependentUpon>frm_Products_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_Products\frm_Products_Class.cs" />
-    <Compile Include="frm_Products\frm_Products_Edit.cs">
+    <Compile Include="Forms\frm_Products\frm_Products_Class.cs" />
+    <Compile Include="Forms\frm_Products\frm_Products_Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_Products\frm_Products_Edit.Designer.cs">
+    <Compile Include="Forms\frm_Products\frm_Products_Edit.Designer.cs">
       <DependentUpon>frm_Products_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales.Designer.cs">
+      <DependentUpon>frm_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales_Class.cs" />
+    <Compile Include="Forms\frm_Sales\frm_Sales_Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales_Edit.Designer.cs">
+      <DependentUpon>frm_Sales_Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales_Show.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm_Sales\frm_Sales_Show.Designer.cs">
+      <DependentUpon>frm_Sales_Show.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Utility\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utility\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\JSControls.cs">
       <SubType>Component</SubType>
@@ -225,15 +282,13 @@
       <DependentUpon>test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility\JSDataAccess.cs" />
-    <Compile Include="Utility\JDBConnection.cs" />
-    <Compile Include="Utility\JDBSecondaryConnection.cs" />
     <Compile Include="Utility\Juc_MainMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Utility\Juc_MainMenu.Designer.cs">
       <DependentUpon>Juc_MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility\vsData\Program.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\frm_Base\frm_base_AddData.resx">
       <DependentUpon>frm_base_AddData.cs</DependentUpon>
@@ -256,14 +311,20 @@
     <EmbeddedResource Include="Forms\frm_Category\frm_Category_Edit.resx">
       <DependentUpon>frm_Category_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Customers\frm_Customers.resx">
+    <EmbeddedResource Include="Forms\frm_Customers\frm_Customers.resx">
       <DependentUpon>frm_Customers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Customers\frm_Customers_Add.resx">
+    <EmbeddedResource Include="Forms\frm_Customers\frm_Customers_Add.resx">
       <DependentUpon>frm_Customers_Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Customers\frm_Customers_Edit.resx">
+    <EmbeddedResource Include="Forms\frm_Customers\frm_Customers_Edit.resx">
       <DependentUpon>frm_Customers_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Purchase\frm_Purchase.resx">
+      <DependentUpon>frm_Purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Sales\frm_Sales_Setting.resx">
+      <DependentUpon>frm_Sales_Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm_Supplier\frm_Supplier.resx">
       <DependentUpon>frm_Supplier.cs</DependentUpon>
@@ -283,17 +344,29 @@
     <EmbeddedResource Include="Forms\frm_Units\frm_Units_Edit.resx">
       <DependentUpon>frm_Units_Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Products\frm_Products.resx">
+    <EmbeddedResource Include="Forms\Rpt_Sales\frm_Sales_Report.resx">
+      <DependentUpon>frm_Sales_Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Other\frm_AboutJS.resx">
+      <DependentUpon>frm_AboutJS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Products\frm_Products.resx">
       <DependentUpon>frm_Products.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Products\frm_Products_Add.resx">
+    <EmbeddedResource Include="Forms\frm_Products\frm_Products_Add.resx">
       <DependentUpon>frm_Products_Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frm_Products\frm_Products_Edit.resx">
+    <EmbeddedResource Include="Forms\frm_Products\frm_Products_Edit.resx">
       <DependentUpon>frm_Products_Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm_Sales\frm_Sales.resx">
+      <DependentUpon>frm_Sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test1.resx">
       <DependentUpon>test1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utility\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Utility\Juc_MainMenu.resx">
       <DependentUpon>Juc_MainMenu.cs</DependentUpon>
@@ -308,6 +381,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Utility\vsData\app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -348,14 +422,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.10.0">
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
       <Visible>False</Visible>
-      <ProductName>SQL Server 2008 Express</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
+      <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>

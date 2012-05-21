@@ -1,6 +1,6 @@
-﻿namespace JSuperMarket
+﻿namespace JSuperMarket.Forms.frm_Base
 {
-    partial class frm_base_AddData
+    partial class FrmBaseAddData
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.SuspendLayout();
             // 
-            // frm_base_AddData
+            // FrmBaseAddData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -40,14 +40,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
-            this.Name = "frm_base_AddData";
+            this.Name = "FrmBaseAddData";
             this.Opacity = 0.95D;
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ClosingEffect);
-            this.Load += new System.EventHandler(this.frm_base_AddData_Load);
+            this.Load += new System.EventHandler(this.FrmBaseAddDataLoad);
             this.ResumeLayout(false);
 
         }

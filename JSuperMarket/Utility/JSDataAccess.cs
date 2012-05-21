@@ -2,125 +2,139 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace JSuperMarket
+namespace JSuperMarket.Utility
 {
     class JSDataAccess
     {
         // Declaration Variable...
-        public bool _ShowFriendlyMessage = false;
-        public bool _IsExpress = false;
-        public string _Server=".";
-        public string _DataBase = "JSuperMarket";
-        public string _userid="sa";
-        public string _password="2190053994";
-        public string _CommandText = "select * from dbo.";
-        public string _TableName = "";
-        public string _LastError = "";
+        public bool ShowFriendlyMessage;
+        public bool IsExpress;
+        public string Server=".";
+        public string DataBase = "JSSuperMarketDB";
+        public string Userid="sa";
+        public string Password="2190053994";
+        public string CommandText = "select * from dbo.";
+        public string TableName = "";
+        public string LastError = "";
+        public int Identity;
 
         public enum CmdType { Insert, Update, Delete }
-        SqlConnection con;
-        SqlCommand cmd;
-        SqlDataAdapter da;
+
+        readonly SqlConnection _con;
+        readonly SqlCommand _cmd;
+        readonly SqlDataAdapter _da;
 
 
-        public JSDataAccess()       // Counstructor...
+        public JSDataAccess()       // Constructor...
         {
-            this.con = new SqlConnection();
-            this.cmd = new SqlCommand();
-            this.da = new SqlDataAdapter();
-            this.cmd.Connection = this.con;
-            this.da.SelectCommand = this.cmd;
+            _con = new SqlConnection();
+            _cmd = new SqlCommand();
+            _da = new SqlDataAdapter();
+            _cmd.Connection = _con;
+            _da.SelectCommand = _cmd;
             
-            if (_IsExpress)
-                con.ConnectionString = @"Data source=.\SQLEXPRESS;Attachdbfilename=|DataDirectory|\"
-                    + this._DataBase + ";Integrated security=true;user Instance=true";
+            if (IsExpress)
+            {
+                //con.ConnectionString = @"Data source=.\SQLEXPRESS; Attachdbfilename = |DataDirectory|\"
+                //    + this._DataBase + ".mdf; Integrated security = true; user Instance = true";
+
+
+                _con.ConnectionString = @"Server =.\SQLEXPRESS; Attachdbfilename = |DataDirectory|\" + DataBase + ".mdf; "
+                                    + "; Integrated Security=SSPI;Persist Security Info=False";
+            }
             else
-                con.ConnectionString = "Server = " + this._Server + "; Database = " + this._DataBase
-                    + "; User ID = " + this._userid + "; Password =" + this._password;
+                _con.ConnectionString = "Server = " + Server + "; Database = " + DataBase
+                    + "; User ID = " + Userid + "; Password =" + Password;
         }
         public void DBConnect()
         {
-            try     { this.con.Open(); }
+            try     { _con.Open(); }
             catch (Exception ex) 
             {
-                if (this._ShowFriendlyMessage)      this._LastError += "اشکال در ارتباط با بانک اطلاعاتی";
-                else                                this._LastError += "Connect: " + ex.Message;
+                if (ShowFriendlyMessage) LastError += @"اشکال در ارتباط با بانک اطلاعاتی";
+                else LastError += @"Connect: " + ex.Message;
             }
         }
 
         public void DBDisconnect()
         {
-            try     { this.con.Close(); }
+            try     { _con.Close(); }
             catch (Exception ex)
             {
-                if (this._ShowFriendlyMessage)      this._LastError += "اشکال در قطع ارتباط با بانک اطلاعاتی";
-                else                                this._LastError += "Disconnect: " + ex.Message;
+                if (ShowFriendlyMessage) LastError += @"اشکال در قطع ارتباط با بانک اطلاعاتی";
+                else LastError += @"Disconnect: " + ex.Message;
             }
         }
         
-        public DataTable DBSelectBySQL(string SQL)
+        public DataTable DBSelectBySQL(string sql)
         {
-            this.DBConnect();
-            DataTable dt = new DataTable();
+            DBConnect();
+            var dt = new DataTable();
 
-            if (this._LastError == "")
+            if (LastError == "")
             {
                 try
                 {
-                    this.cmd.CommandText = SQL;
-                    this.da.Fill(dt);
+                    _cmd.CommandText = sql ;
+                    _da.Fill(dt);
                 }
                 catch (Exception ex)
                 {
-                    if (this._ShowFriendlyMessage)  this._LastError += "خطا در خواندن اطلاعات";
-                    else                            this._LastError += "SelectBySQL: " +ex.Message;
-
+                    if (ShowFriendlyMessage) LastError += @"خطا در خواندن اطلاعات";
+                    else LastError += @"SelectBySQL: " + ex.Message;
                 }
-                finally { this.DBDisconnect(); }
-
+                finally { DBDisconnect(); }
             }
             return dt;
-            
         }
-        public DataTable DBSelectByTable(string TableName)
-        {
-            this.DBConnect();
-            DataTable dt = new DataTable();
 
-            if (this._LastError == "")
+        public DataTable DBSelectByTable(string tblname)
+        {
+            DBConnect();
+            var dt = new DataTable();
+
+            if (LastError == "")
             {
                 try
                 {
-                    this.cmd.CommandText = "select * from dbo.";
-                    this.da.Fill(dt);
+                    _cmd.CommandText = "select * from dbo." + tblname;
+                    _da.Fill(dt);
                 }
                 catch (Exception ex)
                 {
-                    if (this._ShowFriendlyMessage) this._LastError += "خطا در خواندن اطلاعات";
-                    else                           this._LastError += "SelectBytable: " + ex.Message;
+                    if (ShowFriendlyMessage) LastError += @"خطا در خواندن اطلاعات";
+                    else LastError += @"SelectBytable: " + ex.Message;
 
                 }
-                finally { this.DBDisconnect(); }
+                finally { DBDisconnect(); }
 
             }
             return dt;
 
         }
 
-        public void DBDoCommand(string SQL)
+        public void DBDoCommand(string sql, bool returnIdentity = false)
         {
-            this.DBConnect();
+            DBConnect();
             try
             {
-                this.cmd.CommandText = SQL;
-                this.cmd.ExecuteNonQuery();
+                if (!returnIdentity)
+                {
+                    _cmd.CommandText = sql;
+                    _cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    _cmd.CommandText = sql + "; SELECT SCOPE_IDENTITY() AS [lastInsertedId]";
+                    Identity = Convert.ToInt32(_cmd.ExecuteScalar());
+                }
             }
             catch (Exception ex)
             {
-                if (this._ShowFriendlyMessage)  this._LastError += "خطا در اجرای اطلاعات";
-                else                            this._LastError += "DoCommand: " + ex.Message;
+                if (ShowFriendlyMessage) LastError += @"خطا در اجرای دستورات";
+                else LastError += @"DoCommand: " + ex.Message;
             }
-            finally { this.DBDisconnect(); }
+            finally { DBDisconnect(); }
         }
     }
 }

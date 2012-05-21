@@ -1,6 +1,6 @@
 ﻿namespace JSuperMarket.frm_Products
 {
-    partial class frm_Products_Add
+    partial class FrmProductsAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Products_Add));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductsAdd));
             this.jscLabel4 = new JSuperMarket.JSCLabel();
             this.jscLabel5 = new JSuperMarket.JSCLabel();
             this.jscLabel6 = new JSuperMarket.JSCLabel();
@@ -133,6 +133,7 @@
             this.jscTextBox2.MaxLength = 200;
             this.jscTextBox2.Name = "jscTextBox2";
             this.jscTextBox2.Number = 0;
+            this.jscTextBox2.PersianText = true;
             this.jscTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox2.Size = new System.Drawing.Size(151, 28);
             this.jscTextBox2.TabIndex = 3;
@@ -145,6 +146,7 @@
             this.jscTextBox3.MaxLength = 200;
             this.jscTextBox3.Name = "jscTextBox3";
             this.jscTextBox3.Number = 0;
+            this.jscTextBox3.PersianText = true;
             this.jscTextBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox3.Size = new System.Drawing.Size(151, 28);
             this.jscTextBox3.TabIndex = 4;
@@ -157,6 +159,7 @@
             this.jscTextBox4.MaxLength = 200;
             this.jscTextBox4.Name = "jscTextBox4";
             this.jscTextBox4.Number = 0;
+            this.jscTextBox4.PersianText = true;
             this.jscTextBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox4.Size = new System.Drawing.Size(151, 28);
             this.jscTextBox4.TabIndex = 5;
@@ -169,6 +172,7 @@
             this.jscTextBox5.MaxLength = 200;
             this.jscTextBox5.Name = "jscTextBox5";
             this.jscTextBox5.Number = 0;
+            this.jscTextBox5.PersianText = true;
             this.jscTextBox5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox5.Size = new System.Drawing.Size(130, 28);
             this.jscTextBox5.TabIndex = 1;
@@ -181,6 +185,7 @@
             this.jscTextBox6.MaxLength = 200;
             this.jscTextBox6.Name = "jscTextBox6";
             this.jscTextBox6.Number = 1;
+            this.jscTextBox6.PersianText = true;
             this.jscTextBox6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox6.Size = new System.Drawing.Size(130, 28);
             this.jscTextBox6.TabIndex = 2;
@@ -245,6 +250,7 @@
             this.jscTextBox7.MaxLength = 200;
             this.jscTextBox7.Name = "jscTextBox7";
             this.jscTextBox7.Number = 0;
+            this.jscTextBox7.PersianText = true;
             this.jscTextBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox7.Size = new System.Drawing.Size(151, 28);
             this.jscTextBox7.TabIndex = 7;
@@ -257,12 +263,15 @@
             this.jsBarCodeBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.jsBarCodeBox1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.jsBarCodeBox1.Location = new System.Drawing.Point(236, 100);
+            this.jsBarCodeBox1.MaxLength = 20;
             this.jsBarCodeBox1.Name = "jsBarCodeBox1";
             this.jsBarCodeBox1.ReadOnly = true;
+            this.jsBarCodeBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.jsBarCodeBox1.Size = new System.Drawing.Size(200, 26);
             this.jsBarCodeBox1.TabIndex = 31;
             this.jsBarCodeBox1.TabStop = false;
             this.jsBarCodeBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.jsBarCodeBox1.TextChanged += new System.EventHandler(this.JsBarCodeBox1TextChanged);
             // 
             // jscComboBox3
             // 
@@ -276,7 +285,6 @@
             this.jscComboBox3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscComboBox3.Size = new System.Drawing.Size(200, 29);
             this.jscComboBox3.TabIndex = 6;
-            this.jscComboBox3.Enter += new System.EventHandler(this.jscComboBox3_Enter);
             // 
             // jscLabel13
             // 
@@ -289,7 +297,7 @@
             this.jscLabel13.Size = new System.Drawing.Size(31, 21);
             this.jscLabel13.TabIndex = 30;
             this.jscLabel13.Text = "بارکد";
-            this.jscLabel13.Click += new System.EventHandler(this.jscLabel13_Click);
+            this.jscLabel13.Click += new System.EventHandler(this.JscLabel13Click);
             // 
             // jscComboBox1
             // 
@@ -301,7 +309,6 @@
             this.jscComboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscComboBox1.Size = new System.Drawing.Size(200, 29);
             this.jscComboBox1.TabIndex = 2;
-            this.jscComboBox1.Enter += new System.EventHandler(this.jscComboBox1_Enter);
             // 
             // jscTextBox1
             // 
@@ -310,6 +317,7 @@
             this.jscTextBox1.MaxLength = 200;
             this.jscTextBox1.Name = "jscTextBox1";
             this.jscTextBox1.Number = 0;
+            this.jscTextBox1.PersianText = true;
             this.jscTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox1.Size = new System.Drawing.Size(200, 28);
             this.jscTextBox1.TabIndex = 1;
@@ -391,6 +399,7 @@
             this.jscTextBox10.Multiline = true;
             this.jscTextBox10.Name = "jscTextBox10";
             this.jscTextBox10.Number = 0;
+            this.jscTextBox10.PersianText = true;
             this.jscTextBox10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox10.Size = new System.Drawing.Size(423, 57);
             this.jscTextBox10.TabIndex = 5;
@@ -414,6 +423,7 @@
             this.jscTextBox8.MaxLength = 200;
             this.jscTextBox8.Name = "jscTextBox8";
             this.jscTextBox8.Number = 0;
+            this.jscTextBox8.PersianText = true;
             this.jscTextBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.jscTextBox8.Size = new System.Drawing.Size(151, 28);
             this.jscTextBox8.TabIndex = 3;
@@ -458,7 +468,7 @@
             this.jscAdd1.Text = "اضافه کردن";
             this.jscAdd1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscAdd1.UseVisualStyleBackColor = false;
-            this.jscAdd1.Click += new System.EventHandler(this.jscAdd1_Click);
+            this.jscAdd1.Click += new System.EventHandler(this.JscAdd1Click);
             // 
             // jscClose1
             // 
@@ -476,7 +486,7 @@
             this.jscClose1.Text = "بستن";
             this.jscClose1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscClose1.UseVisualStyleBackColor = false;
-            this.jscClose1.Click += new System.EventHandler(this.jscClose1_Click);
+            this.jscClose1.Click += new System.EventHandler(this.JscClose1Click);
             // 
             // frm_Products_Add
             // 
@@ -490,10 +500,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.KeyPreview = true;
-            this.Name = "frm_Products_Add";
+            this.Name = "FrmProductsAdd";
             this.Text = "تعریف کالای جدید";
-            this.Load += new System.EventHandler(this.frm_Products_Add_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frm_Products_Add_KeyPress);
+            this.Load += new System.EventHandler(this.FrmProductsAddLoad);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmProductsAddKeyPress);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

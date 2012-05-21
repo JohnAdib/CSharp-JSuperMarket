@@ -1,64 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Data;
+using JSuperMarket.Utility;
 
 namespace JSuperMarket.frm_Supplier
 {
-    class frm_Supplier_Class
+    class FrmSupplierClass
     {
-
-        private string TableName = "dbo.tbl_SM_Suppliers";
-        JSDataAccess JSDA = new JSDataAccess();
+        private const string TableName = "dbo.tbl_SM_Suppliers";
+        readonly JSDataAccess _jsda = new JSDataAccess();
         public string LastError = "";
-        public int _SID = 0;
-        public string _SName = "";
-        public string _SAddress = "";
-        public string _STel = "";
-        public string _SDesc = "";
-        public string _SVisitor = "";
+        public int Sid;
+        public string SName = "";
+        public string SAddress = "";
+        public string STel = "";
+        public string SDesc = "";
+        public string SVisitor = "";
 
 
         public DataTable DBSelect()
         {
-            return JSDA.DBSelectBySQL("Select * from " + this.TableName);
+            return _jsda.DBSelectBySQL("Select * from " + TableName);
         }
 
         public void DBAdd()
         {
-            string SQL = "Insert into " + this.TableName + " (SName, SAddress, STel, SDesc, SVisitor) "
+            string sql = "Insert into " + TableName + " (SName, SAddress, STel, SDesc, SVisitor) "
                                         + "values ( N'{0}', N'{1}', N'{2}', N'{3}', N'{4}' )";
-            SQL = string.Format(SQL, this._SName, this._SAddress, this._STel, this._SDesc, this._SVisitor);
-            JSDA.DBDoCommand(SQL);
-            LastError += JSDA._LastError;
+            sql = string.Format(sql, SName, SAddress, STel, SDesc, SVisitor);
+            _jsda.DBDoCommand(sql);
+            LastError += _jsda.LastError;
         }
 
         public void DBDelete()
         {
-            string SQL = "Delete from " + this.TableName + " where SupplierID = {0}";
-            SQL = string.Format(SQL, this._SID);
-            JSDA.DBDoCommand(SQL);
-            LastError += JSDA._LastError;
+            string sql = "Delete from " + TableName + " where SupplierID = {0}";
+            sql = string.Format(sql, Sid);
+            _jsda.DBDoCommand(sql);
+            LastError += _jsda.LastError;
         }
 
         public void DBUpdate()
         {
-            string SQL = "Update " + this.TableName + " Set SName = N'{0}', SAddress = N'{1}', STel = N'{2}', SDesc = N'{3}', SVisitor= N'{4}' "
+            string sql = "Update " + TableName + " Set SName = N'{0}', SAddress = N'{1}', STel = N'{2}', SDesc = N'{3}', SVisitor= N'{4}' "
                                    + "where SupplierID = {5}";
-            SQL = string.Format(SQL, this._SName, this._SAddress, this._STel, this._SDesc, this._SVisitor, this._SID);
-            JSDA.DBDoCommand(SQL);
-            LastError += JSDA._LastError;
+            sql = string.Format(sql, SName, SAddress, STel, SDesc, SVisitor, Sid);
+            _jsda.DBDoCommand(sql);
+            LastError += _jsda.LastError;
         }
 
         public void DBFind()
         {
-            DataTable SelectedRecord = new DataTable();
-            SelectedRecord = JSDA.DBSelectBySQL("Select * from " + this.TableName + " where SupplierID = " + this._SID);
-            this._SName = SelectedRecord.Rows[0]["SName"].ToString();
-            this._SAddress = SelectedRecord.Rows[0]["SAddress"].ToString();
-            this._STel = SelectedRecord.Rows[0]["STel"].ToString();
-            this._SDesc = SelectedRecord.Rows[0]["SDesc"].ToString();
-            this._SVisitor = SelectedRecord.Rows[0]["SVisitor"].ToString();
+            var SelectedRecord = new DataTable();
+            SelectedRecord = _jsda.DBSelectBySQL("Select * from " + TableName + " where SupplierID = " + Sid);
+            SName = SelectedRecord.Rows[0]["SName"].ToString();
+            SAddress = SelectedRecord.Rows[0]["SAddress"].ToString();
+            STel = SelectedRecord.Rows[0]["STel"].ToString();
+            SDesc = SelectedRecord.Rows[0]["SDesc"].ToString();
+            SVisitor = SelectedRecord.Rows[0]["SVisitor"].ToString();
+        }
+
+        public int DBSearchRecord(string fieldValue)
+        {
+
+            return _jsda.DBSelectBySQL("Select * from dbo.tbl_SM_Purchases where SupplierID = " + fieldValue).Rows.Count;
         }
     }
 }

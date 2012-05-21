@@ -1,4 +1,6 @@
-﻿namespace JSuperMarket
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket
 {
     partial class frm_Category_Add
     {
@@ -29,11 +31,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Category_Add));
-            this.lblFormTitle = new JSuperMarket.JSCLabel();
-            this.jscLabel1 = new JSuperMarket.JSCLabel();
-            this.jscTextBox1 = new JSuperMarket.JSCTextBox();
-            this.jscAdd1 = new JSuperMarket.JSCAdd();
-            this.jscClose1 = new JSuperMarket.JSCClose();
+            this.lblFormTitle = new JSCLabel();
+            this.jscLabel1 = new JSCLabel();
+            this.jscTextBox1 = new JSCTextBox();
+            this.jscAdd1 = new JSCAdd();
+            this.jscClose1 = new JSCClose();
             this.SuspendLayout();
             // 
             // lblFormTitle

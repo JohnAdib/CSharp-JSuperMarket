@@ -1,70 +1,157 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Products;
+using JSuperMarket.Forms.frm_Purchase;
+using JSuperMarket.Forms.frm_Sales;
 
-namespace JSuperMarket
+namespace JSuperMarket.Forms.frm_Base
 {
-    public partial class frm_MainForm : Form
+    public partial class FrmMainForm : Form
     {
-        string UserCode = "";
-        string UserFullName = "";
-        public frm_MainForm(string _usercode, string _Userfullname)
+// ReSharper disable NotAccessedField.Local
+        string _userCode = "";
+// ReSharper restore NotAccessedField.Local
+        readonly string _userFullName = "";
+        public FrmMainForm(string usercode, string userfullname)
         {
-            this.UserCode = _usercode;
-            this.UserFullName = _Userfullname;
+            _userCode = usercode;
+            _userFullName = userfullname;
             InitializeComponent();
         }
+        
 
-        private void frm_MainForm_Load(object sender, EventArgs e)
-        {
-            jscLabel1.Text += UserFullName;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FrmMainFormLoad(object sender, EventArgs e)
         {
-            frm_Category frmCategory = new frm_Category();
-            frmCategory.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            test1 frmtest = new test1();
-            frmtest.ShowDialog();
+            //jsctxtUser.Text += _userFullName;
         }
 
 
-        private void button4_Click(object sender, EventArgs e)
+
+
+        private void Button4Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Button5Click(object sender, EventArgs e)
         {
-            frm_Units.frm_Units frmUnits = new frm_Units.frm_Units();
+            var frmUnits = new frm_Units.FrmUnits();
             frmUnits.ShowDialog();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Button6Click(object sender, EventArgs e)
         {
-            frm_Supplier.frm_Supplier frmSupplier = new frm_Supplier.frm_Supplier();
+            var frmSupplier = new frm_Supplier.frm_Supplier();
             frmSupplier.ShowDialog();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Button7Click(object sender, EventArgs e)
         {
-            frm_Customers.frm_Customers frmCustomers = new frm_Customers.frm_Customers();
+            var frmCustomers = new frm_Customers.frm_Customers();
             frmCustomers.ShowDialog();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+
+
+
+
+        private void JscLabel2Click(object sender, EventArgs e)
         {
-            frm_Products.frm_Products frmProducts = new frm_Products.frm_Products();
-            frmProducts.ShowDialog();
+            var test = new Utility.Form1();
+            test.ShowDialog();
         }
+
+        private void JscTimer1Tick(object sender, EventArgs e)
+        {
+            // add shamsi date to main form
+            var pc = new System.Globalization.PersianCalendar();
+            string txtdate = @"امروز " + pc.GetYear(DateTime.Now) + @"/" + pc.GetMonth(DateTime.Now) + @"/" + pc.GetDayOfMonth(DateTime.Now);
+            if (txtdate.Length <= jscTimer1.TickTimes) jscTimer1.Enabled = false;
+            jsctxtDate.Text = txtdate.Substring(0, jscTimer1.TickTimes);
+            
+            // add current user to main form
+            string txtuser = _userFullName;
+            if (txtuser.Length <= jscTimer1.TickTimes) return;
+            jsctxtUser.Text += txtuser.Substring(jscTimer1.TickTimes, 1);
+        }
+
+        private FrmSales _frmSales;
+        private void OpenfrmSale(object sender, EventArgs e)
+        {
+            _frmSales = new FrmSales();
+            _frmSales.FormClosed += FrmSalesClosed;
+            _frmSales.Show();
+            Hide();
+        }
+        void FrmSalesClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmSales.Dispose();
+            _frmSales = null;
+            Show();
+        }
+        private FrmProducts _frmProducts;
+        private void OpenFrmProducts(object sender, EventArgs e)
+        {
+            _frmProducts = new FrmProducts();
+            //_frmProducts.FormClosed += FrmProductsClosed;
+            Hide();
+            _frmProducts.ShowDialog();
+            Show();
+        }
+/*
+        void FrmProductsClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmProducts.Dispose();
+            _frmProducts = null;
+            Show();
+        }
+*/
+
+        private void Button1Click(object sender, EventArgs e)
+        {
+            var frmCategory = new FrmCategory();
+            frmCategory.ShowDialog();
+        }
+
+        private FrmPurchase _frmPurchase;
+        private void OpenFrmPurchaseClick(object sender, EventArgs e)
+        {
+            _frmPurchase = new FrmPurchase();
+            _frmPurchase.FormClosed += FrmPurchaseClosed;
+            _frmPurchase.Show();
+            Hide();
+        }
+        void FrmPurchaseClosed(object sender, FormClosedEventArgs e)
+        {
+            _frmPurchase.Dispose();
+            _frmPurchase = null;
+            Show();
+        }
+
+        private void LblFormTitleClick(object sender, EventArgs e)
+        {
+            var rptSales = new Rpt_Sales.FrmSalesReport();
+            rptSales.ShowDialog();
+        }
+
+        private void Button9Click(object sender, EventArgs e)
+        {
+            var rptSales = new Rpt_Sales.FrmSalesReport();
+            rptSales.ShowDialog();
+        }
+
+        private void Button3Click(object sender, EventArgs e)
+        {
+            var frmSaleSetting = new FrmSalesSetting();
+            frmSaleSetting.ShowDialog();
+        }
+
+        private void JsctxtUserClick(object sender, EventArgs e)
+        {
+            var frmtest = new Test1();
+            frmtest.Show();
+        }
+
     }
 }

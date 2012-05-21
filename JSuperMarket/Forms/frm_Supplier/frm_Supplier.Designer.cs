@@ -1,4 +1,6 @@
-﻿namespace JSuperMarket.frm_Supplier
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket.frm_Supplier
 {
     partial class frm_Supplier
     {
@@ -29,12 +31,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Supplier));
-            this.lblFormTitle = new JSuperMarket.JSCLabel();
-            this.jscDataGrid1 = new JSuperMarket.JSCDataGrid();
-            this.jscAdd1 = new JSuperMarket.JSCAdd();
-            this.jscUpdate1 = new JSuperMarket.JSCUpdate();
-            this.jscDelete1 = new JSuperMarket.JSCDelete();
-            this.jscHome1 = new JSuperMarket.JSCHome();
+            this.lblFormTitle = new JSCLabel();
+            this.jscDataGrid1 = new JSCDataGrid();
+            this.jscAdd1 = new JSCAdd();
+            this.jscUpdate1 = new JSCUpdate();
+            this.jscDelete1 = new JSCDelete();
+            this.jscHome1 = new JSCHome();
+            this.SupplierID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SVisitor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,12 +72,14 @@
             this.jscDataGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jscDataGrid1.ColumnHeadersVisible = false;
             this.jscDataGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SupplierID,
             this.SName,
             this.SVisitor,
             this.SAddress,
             this.STel,
             this.SDesc});
             this.jscDataGrid1.GridColor = System.Drawing.SystemColors.Menu;
+            this.jscDataGrid1.JSCustomSetting = true;
             this.jscDataGrid1.Location = new System.Drawing.Point(118, 39);
             this.jscDataGrid1.MultiSelect = false;
             this.jscDataGrid1.Name = "jscDataGrid1";
@@ -86,7 +91,7 @@
             this.jscDataGrid1.StandardTab = true;
             this.jscDataGrid1.TabIndex = 23;
             this.jscDataGrid1.VirtualMode = true;
-            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.jscDataGrid1_KeyDown);
+            this.jscDataGrid1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.JSCDataGrid1KeyDown);
             // 
             // jscAdd1
             // 
@@ -138,7 +143,7 @@
             this.jscDelete1.Text = "حذف";
             this.jscDelete1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscDelete1.UseVisualStyleBackColor = false;
-            this.jscDelete1.Click += new System.EventHandler(this.jscDelete1_Click);
+            this.jscDelete1.Click += new System.EventHandler(this.JSCDelete1Click);
             // 
             // jscHome1
             // 
@@ -157,6 +162,14 @@
             this.jscHome1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.jscHome1.UseVisualStyleBackColor = false;
             this.jscHome1.Click += new System.EventHandler(this.jscHome1_Click);
+            // 
+            // SupplierID
+            // 
+            this.SupplierID.DataPropertyName = "SupplierID";
+            this.SupplierID.HeaderText = "کد شرکت";
+            this.SupplierID.Name = "SupplierID";
+            this.SupplierID.ReadOnly = true;
+            this.SupplierID.Visible = false;
             // 
             // SName
             // 
@@ -207,8 +220,10 @@
             this.Controls.Add(this.jscAdd1);
             this.Controls.Add(this.jscDataGrid1);
             this.Controls.Add(this.lblFormTitle);
+            this.KeyPreview = true;
             this.Name = "frm_Supplier";
             this.Load += new System.EventHandler(this.frm_Supplier_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frm_Supplier_KeyDown);
             this.Controls.SetChildIndex(this.lblFormTitle, 0);
             this.Controls.SetChildIndex(this.jscDataGrid1, 0);
             this.Controls.SetChildIndex(this.jscAdd1, 0);
@@ -229,6 +244,7 @@
         private JSCUpdate jscUpdate1;
         private JSCDelete jscDelete1;
         private JSCHome jscHome1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierID;
         private System.Windows.Forms.DataGridViewTextBoxColumn SName;
         private System.Windows.Forms.DataGridViewTextBoxColumn SVisitor;
         private System.Windows.Forms.DataGridViewTextBoxColumn SAddress;

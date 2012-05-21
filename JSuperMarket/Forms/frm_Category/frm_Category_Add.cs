@@ -5,10 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Base;
 
 namespace JSuperMarket
 {
-    public partial class frm_Category_Add : JSuperMarket.frm_base_AddData
+    public partial class frm_Category_Add : FrmBaseAddData
     {
         public frm_Category_Add()
         {
@@ -20,10 +21,10 @@ namespace JSuperMarket
             if (jscTextBox1.Text == "")
                 return;
 
-            frm_Category_Class RelatedClass = new frm_Category_Class();
-            RelatedClass._CName = jscTextBox1.Text;
+            FrmCategoryClass RelatedClass = new FrmCategoryClass();
+            RelatedClass.CName = jscTextBox1.Text;
             RelatedClass.DBAdd();
-            ((frm_Category)this.Owner).UpdateDateGrid();
+            ((FrmCategory)this.Owner).UpdateDateGrid();
             // above code update data grid view in main form
             jscTextBox1.Text = "";
             jscTextBox1.Focus();

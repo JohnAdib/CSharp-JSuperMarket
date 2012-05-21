@@ -1,4 +1,6 @@
-﻿namespace JSuperMarket.frm_Supplier
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket.frm_Supplier
 {
     partial class frm_Supplier_Edit
     {
@@ -29,19 +31,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Supplier_Edit));
-            this.jscTextBox5 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox4 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox3 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox2 = new JSuperMarket.JSCTextBox();
-            this.jscTextBox1 = new JSuperMarket.JSCTextBox();
-            this.jscLabel5 = new JSuperMarket.JSCLabel();
-            this.jscLabel4 = new JSuperMarket.JSCLabel();
-            this.jscLabel3 = new JSuperMarket.JSCLabel();
-            this.jscLabel2 = new JSuperMarket.JSCLabel();
-            this.jscLabel1 = new JSuperMarket.JSCLabel();
-            this.lblFormTitle = new JSuperMarket.JSCLabel();
-            this.jscUpdate1 = new JSuperMarket.JSCUpdate();
-            this.jscClose1 = new JSuperMarket.JSCClose();
+            this.jscTextBox5 = new JSCTextBox();
+            this.jscTextBox4 = new JSCTextBox();
+            this.jscTextBox3 = new JSCTextBox();
+            this.jscTextBox2 = new JSCTextBox();
+            this.jscTextBox1 = new JSCTextBox();
+            this.jscLabel5 = new JSCLabel();
+            this.jscLabel4 = new JSCLabel();
+            this.jscLabel3 = new JSCLabel();
+            this.jscLabel2 = new JSCLabel();
+            this.jscLabel1 = new JSCLabel();
+            this.lblFormTitle = new JSCLabel();
+            this.jscUpdate1 = new JSCUpdate();
+            this.jscClose1 = new JSCClose();
             this.SuspendLayout();
             // 
             // jscTextBox5

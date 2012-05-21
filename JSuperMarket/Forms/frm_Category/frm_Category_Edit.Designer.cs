@@ -1,4 +1,6 @@
-﻿namespace JSuperMarket
+﻿using JSuperMarket.Utility;
+
+namespace JSuperMarket
 {
     partial class frm_Category_Edit
     {
@@ -29,11 +31,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Category_Edit));
-            this.jscUpdate1 = new JSuperMarket.JSCUpdate();
-            this.jscClose1 = new JSuperMarket.JSCClose();
-            this.jscTextBox1 = new JSuperMarket.JSCTextBox();
-            this.jscLabel1 = new JSuperMarket.JSCLabel();
-            this.lblFormTitle = new JSuperMarket.JSCLabel();
+            this.jscUpdate1 = new JSCUpdate();
+            this.jscClose1 = new JSCClose();
+            this.jscTextBox1 = new JSCTextBox();
+            this.jscLabel1 = new JSCLabel();
+            this.lblFormTitle = new JSCLabel();
             this.SuspendLayout();
             // 
             // jscUpdate1

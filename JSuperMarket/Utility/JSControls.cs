@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-using System.Text;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace JSuperMarket
+namespace JSuperMarket.Utility
 {
-    class JSCTextBox : TextBox
+    sealed class JSCTextBox : TextBox
     {
         public JSCTextBox ()
         {
@@ -16,25 +15,18 @@ namespace JSuperMarket
             MaxLength = 200;
         }
 
-        protected override void OnValidating(System.ComponentModel.CancelEventArgs e)
+        protected override void OnValidating(CancelEventArgs e)
         {
             base.OnValidating(e);
-            string ClearString = "";
-            foreach (char c in Text.ToCharArray())
-            {
-                if (c != '\'')
-                    ClearString += c;
-            }
-            Text = ClearString;
+            string clearString = Text.Where(c => c != '\'').Aggregate("", (current, c) => current + c);
+            Text = clearString;
             char[] charsToTrim = { ' ', '\'' };
             Text = Text.Trim(charsToTrim);
 
-            if (Text == "")
-                BackColor = Color.SkyBlue;
-            else
-                BackColor = Color.White;
+            BackColor = Text == "" ? Color.SkyBlue : Color.White;
         }
-        private int _DefaultNumber = 0;
+
+        private int _defaultNumber;
         [CategoryAttribute("Appearance"),
         DescriptionAttribute("Enter default number and press enter")]
         public int Number 
@@ -43,51 +35,107 @@ namespace JSuperMarket
             {
                 int d;
                 int.TryParse(Text, out d);
-                if (d==0) d = _DefaultNumber;
+                if (d==0) d = _defaultNumber;
                 return d;
             }
-            set { _DefaultNumber = value;}
+            set { _defaultNumber = value;}
+        }
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            try
+            {
+                if (PersianText)
+                {
+                    var language = new System.Globalization.CultureInfo("fa-ir");
+                    InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(language);
+                }
+                else
+                {
+                    var language = new System.Globalization.CultureInfo("en-us");
+                    InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(language);
+                }
+            }
+            catch (Exception){return;}
+        }
+        private bool _persianText = true;
+        [CategoryAttribute("Appearance"),
+        DescriptionAttribute("if true default input language is Persian else is English")]
+        public bool PersianText
+        {
+            get { return _persianText; }
+            set { _persianText = value; }
         }
 
     }
-    class JSBarCodeBox : TextBox
+
+    sealed class JSBarCodeBox : TextBox
     {
         public JSBarCodeBox()
         {
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             TextAlign = HorizontalAlignment.Center;
+            RightToLeft = RightToLeft.No;
             Enabled = false;
             ReadOnly = true;
+            TabStop = false;
+            MaxLength = 20;
             Font = new Font(FontFamily.GenericSansSerif, 12.0F);
             
         }
     }
 
-    class JSCDataGrid : DataGridView
+    sealed class JSCDataGrid : DataGridView
     {
         public JSCDataGrid()
         {
+            AllowUserToOrderColumns = true;
             BackgroundColor = Color.White;
             BorderStyle = BorderStyle.None;
-            ColumnHeadersVisible = false;
+            RightToLeft = RightToLeft.Yes;
+            MultiSelect = false;
+            Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             GridColor = SystemColors.Menu;
             RowHeadersVisible = false;
-            Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-            AllowUserToOrderColumns = true;
-            AllowUserToAddRows = false;
-            AllowUserToDeleteRows = false;
-            AllowUserToResizeColumns = false;
-            AllowUserToResizeRows = false;
-            ReadOnly = true;
-            MultiSelect = false;
-            SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            StandardTab = true;
-            VirtualMode = true;
-            RightToLeft = RightToLeft.Yes;
+            AutoGenerateColumns = false;
+            
+        }
+        private bool _customSetting = true;
+        [CategoryAttribute("Appearance"),
+        DescriptionAttribute("if true default JS Custom setting is appear")]
+        public bool JSCustomSetting
+        {
+            get { return _customSetting; }
+            set 
+            {
+                _customSetting = value;
+                if (_customSetting)
+                {
+                    ColumnHeadersVisible = false;
+                    AllowUserToAddRows = false;
+                    AllowUserToDeleteRows = false;
+                    AllowUserToResizeColumns = false;
+                    AllowUserToResizeRows = false;
+                    ReadOnly = true;
+                    SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+                else
+                {
+                    ColumnHeadersVisible = true;
+                    AllowUserToAddRows = true;
+                    AllowUserToDeleteRows = true;
+                    //AllowUserToResizeColumns = true;
+                    //AllowUserToResizeRows = true;
+                    ReadOnly = false;
+                    SelectionMode = DataGridViewSelectionMode.CellSelect;
+                    EditMode = DataGridViewEditMode.EditOnEnter;
+                }
+            }
         }
     }
 
-    class JSCComboBox : ComboBox
+    sealed class JSCComboBox : ComboBox
     {
         public JSCComboBox()
         {
@@ -95,18 +143,21 @@ namespace JSuperMarket
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             RightToLeft = RightToLeft.Yes;
         }
+        [CategoryAttribute("Appearance"),
+        DescriptionAttribute("return the selected value, if null return 0")]
         public int SValue
         {
             get
             {
-                int d = 0;
+                if (SelectedValue == null) return 0;
+                int d;
                 int.TryParse(SelectedValue.ToString(), out d);
                 return d;
             }
         }
     }
 
-    class JSCLabel : Label
+    sealed class JSCLabel : Label
     {
         public JSCLabel()
         {
@@ -116,7 +167,7 @@ namespace JSuperMarket
         }
     }
 
-    class JSCCheckBox : CheckBox
+    sealed class JSCCheckBox : CheckBox
     {
         public JSCCheckBox()
         {
@@ -127,14 +178,14 @@ namespace JSuperMarket
         }
     }
 
-    class JSCAdd : Button
+    sealed class JSCAdd : Button
     {
         public JSCAdd()
         {
             BackColor = Color.Transparent;
             ForeColor = Color.Olive;
             FlatStyle = FlatStyle.Flat;
-            Image = JSuperMarket.Properties.Resources.Aadd;
+            Image = Properties.Resources.Aadd;
             
             TextImageRelation = TextImageRelation.ImageBeforeText;
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
@@ -144,17 +195,22 @@ namespace JSuperMarket
         public override string Text
         {
             get     { return base.Text; }
-            set     { base.Text = "اضافه کردن"; }
+            set
+            {
+                if (value == null) throw new ArgumentNullException("value");
+                base.Text = @"اضافه کردن";
+            }
         }
     }
-    class JSCUpdate : Button
+
+    sealed class JSCUpdate : Button
     {
         public JSCUpdate()
         {
             BackColor = Color.Transparent;
             ForeColor = Color.DeepSkyBlue;
             FlatStyle = FlatStyle.Flat;
-            Image = JSuperMarket.Properties.Resources.Aedit;
+            Image = Properties.Resources.Aedit;
 
             TextImageRelation = TextImageRelation.ImageBeforeText;
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
@@ -164,18 +220,22 @@ namespace JSuperMarket
         public override string Text
         {
             get { return base.Text; }
-            set { base.Text = "به روزرسانی"; }
+            set
+            {
+                if (value == null) throw new ArgumentNullException("value");
+                base.Text = @"به روزرسانی";
+            }
         }
     }
 
-    class JSCDelete : Button
+    sealed class JSCDelete : Button
     {
         public JSCDelete()
         {
             BackColor = Color.Transparent;
             ForeColor = Color.Red;
             FlatStyle = FlatStyle.Flat;
-            Image = JSuperMarket.Properties.Resources.Adelete;
+            Image = Properties.Resources.Adelete;
 
             TextImageRelation = TextImageRelation.ImageBeforeText;
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
@@ -185,18 +245,22 @@ namespace JSuperMarket
         public override string Text
         {
             get { return base.Text; }
-            set { base.Text = "حذف"; }
+            set
+            {
+                if (value == null) throw new ArgumentNullException("value");
+                base.Text = @"حذف";
+            }
         }
     }
 
-    class JSCHome : Button
+    sealed class JSCHome : Button
     {
         public JSCHome()
         {
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
             FlatStyle = FlatStyle.Flat;
-            Image = JSuperMarket.Properties.Resources.Ahome;
+            Image = Properties.Resources.Ahome;
 
             TextImageRelation = TextImageRelation.ImageBeforeText;
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
@@ -206,18 +270,22 @@ namespace JSuperMarket
         public override string Text
         {
             get { return base.Text; }
-            set { base.Text = "بازگشت"; }
+            set
+            {
+                if (value == null) throw new ArgumentNullException("value");
+                base.Text = @"بازگشت";
+            }
         }
     }
 
-    class JSCClose : Button
+    sealed class JSCClose : Button
     {
         public JSCClose()
         {
             BackColor = Color.Transparent;
             ForeColor = Color.Black;
             FlatStyle = FlatStyle.Flat;
-            Image = JSuperMarket.Properties.Resources.Aclose;
+            Image = Properties.Resources.Aclose;
 
             TextImageRelation = TextImageRelation.ImageBeforeText;
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
@@ -227,26 +295,28 @@ namespace JSuperMarket
         public override string Text
         {
             get { return base.Text; }
-            set { base.Text = "بستن"; }
+            set
+            {
+                if (value == null) throw new ArgumentNullException("value");
+                base.Text = @"بستن";
+            }
         }
     }
 
-    class JSNTextBox : TextBox
+    sealed class JSCnTextBox : TextBox
     {
-        public JSNTextBox()
+        public JSCnTextBox()
         {
             Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             RightToLeft = RightToLeft.Yes;
         }
-        protected override void OnValidating(System.ComponentModel.CancelEventArgs e)
+        protected override void OnValidating(CancelEventArgs e)
         {
             base.OnValidating(e);
 
-            if (Text == "")
-                BackColor = Color.SkyBlue;
-            else
-                BackColor = Color.White;
+            BackColor = Text == "" ? Color.SkyBlue : Color.White;
         }
+
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
@@ -255,4 +325,37 @@ namespace JSuperMarket
         }
     }
 
+    class JSCTimer : Timer
+    {
+        [DescriptionAttribute("Count Tick of Timer!")]
+        public int TickTimes { get; set; }
+
+        private int _maxTickTimes = 7;
+
+        public JSCTimer()
+        {
+            TickTimes = 0;
+        }
+
+        [DescriptionAttribute(@"Max Tick of Timer!" + @"\n" + @" 0 = extreme")]
+        public int MaxTickTimes
+        {
+            get { return _maxTickTimes; }
+            set { _maxTickTimes = value; }
+        }
+
+        protected override void OnTick(EventArgs e)
+        {
+            base.OnTick(e);
+            TickTimes += 1;
+            if (MaxTickTimes == 0) return;
+            if (TickTimes > MaxTickTimes)
+            {
+                Enabled = false;
+                TickTimes = 0;
+            }
+
+        }
+
+    }
 }

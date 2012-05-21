@@ -11,9 +11,20 @@ namespace JSuperMarket.frm_Products
     public partial class frm_Products_Edit : JSuperMarket.frm_base_AddData
     {
         frm_Products_Class RelatedClass = new frm_Products_Class();
-        public frm_Products_Edit(int PID, string PName, int PUID,int PCID, string PDesc, string Pbarcode, string Pmanuf, int PStock, int PSold, int PMin, int PBPrice, int PPrice, int PDiscount, DateTime PExpDate, string PSize)
+        public frm_Products_Edit(int PID, string PName, int PUID, int PCID, string PDesc, string Pbarcode, string Pmanuf, int PStock, int PSold, int PMin, int PBPrice, int PPrice, int PDiscount, DateTime PExpDate, string PSize)
         {
             InitializeComponent();
+
+            frm_Units.frm_Units_Class frmUnits = new frm_Units.frm_Units_Class();
+            jscComboBox3.DataSource = frmUnits.DBSelect();
+            jscComboBox3.DisplayMember = "ProductsUnit";
+            jscComboBox3.ValueMember = "ProductsUnitID";
+
+            frm_Category_Class frmCategory = new frm_Category_Class();
+            jscComboBox1.DataSource = frmCategory.DBSelect();
+            jscComboBox1.DisplayMember = "ProductCategory";
+            jscComboBox1.ValueMember = "ProductCategoryID";
+
             this.RelatedClass._PBarCode = Pbarcode;
             this.RelatedClass._PID = PID;
             // main fields
@@ -32,19 +43,12 @@ namespace JSuperMarket.frm_Products
             jscTextBox8.Text = Pmanuf.ToString();
             jscTextBox10.Text = PDesc.ToString();
             maskedTextBox1.Text = PExpDate.ToString();        //check this ***
+
         }
 
         private void frm_Products_Edit_Load(object sender, EventArgs e)
         {
-            frm_Category_Class frmCategory = new frm_Category_Class();
-            jscComboBox1.DataSource = frmCategory.DBSelect();
-            jscComboBox1.DisplayMember = "ProductCategory";
-            jscComboBox1.ValueMember = "ProductCategoryID";
 
-            frm_Units.frm_Units_Class frmUnits = new frm_Units.frm_Units_Class();
-            jscComboBox3.DataSource = frmUnits.DBSelect();
-            jscComboBox3.DisplayMember = "ProductsUnit";
-            jscComboBox3.ValueMember = "ProductsUnitID";
         }
 
         private void jscClose1_Click(object sender, EventArgs e)
@@ -89,6 +93,13 @@ namespace JSuperMarket.frm_Products
         {
             if (e.KeyChar == '$')
             {
+                try
+                {
+                    System.Globalization.CultureInfo elanguage = new System.Globalization.CultureInfo("en-us");
+                    InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(elanguage);
+                }
+                catch (Exception ex) { string error = ex.Message; }
+
                 IsBarCode = !IsBarCode;
                 e.Handled = true;
                 if (!IsBarCode)
@@ -96,20 +107,15 @@ namespace JSuperMarket.frm_Products
                     if (Barcode.Length > 7)
                     {
                         jsBarCodeBox1.Text = Barcode;
-                        DataTable dt = RelatedClass.DBFindBarcode(Barcode);
-                        if (dt.Rows.Count > 0)
-                        {
-                            if (dt.Rows[0]["PBarCode"].ToString() != RelatedClass._PBarCode)
-                            {
-                                Barcode = "";
-                                jsBarCodeBox1.Text = RelatedClass._PBarCode;
-                                string messagetext = "این بارکد برای کالایی با نام '" + dt.Rows[0]["PName"].ToString() + "' ثبت شده است." + "\n"
-                                + "لطفا بارکد درست را وارد کرده و یا بارکد قبلی را تصحیح نمایید " + "\n" + "احتمال ورود تکراری کالا هم می رود. به نام کالا دقت کنید";
-                                MessageBox.Show(messagetext, "این بارکد متعلق است به " + dt.Rows[0]["PName"].ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
                     }
                     Barcode = "";
+
+                    try
+                    {
+                        System.Globalization.CultureInfo flanguage = new System.Globalization.CultureInfo("fa-ir");
+                        InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(flanguage);
+                    }
+                    catch (Exception ex) { string error = ex.Message; }
                 }
             }
             else if (IsBarCode)
@@ -122,6 +128,23 @@ namespace JSuperMarket.frm_Products
         private void jscLabel13_Click(object sender, EventArgs e)
         {
             jsBarCodeBox1.Text = "";
+        }
+
+        private void jsBarCodeBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = RelatedClass.DBFindBarcode(Barcode);
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["PBarCode"].ToString() != RelatedClass._PBarCode)
+                {
+                    Barcode = "";
+                    jsBarCodeBox1.Text = RelatedClass._PBarCode;
+                    string messagetext = "این بارکد برای کالایی با نام '" + dt.Rows[0]["PName"].ToString() + "' ثبت شده است." + Environment.NewLine
+                    + "لطفا بارکد درست را وارد کرده و یا بارکد قبلی را تصحیح نمایید " + Environment.NewLine + 
+                    "احتمال ورود تکراری کالا هم می رود. به نام کالا دقت کنید";
+                    MessageBox.Show(messagetext, "این بارکد متعلق است به " + dt.Rows[0]["PName"].ToString(), MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

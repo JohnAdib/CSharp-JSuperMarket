@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-namespace JSuperMarket
+namespace JSuperMarket.Forms.frm_Base
 {
-    public partial class frm_base_ShowData : Form
+    public partial class FrmBaseShowData : Form
     {
-        public frm_base_ShowData()
+        public FrmBaseShowData()
         {
             InitializeComponent();
         }
@@ -32,9 +25,10 @@ namespace JSuperMarket
              */
         }
 
-        private void frm_base_ShowData_Load(object sender, EventArgs e)
+        private void FrmBaseShowDataLoad(object sender, System.EventArgs e)
         {
-
+            Text = Properties.Settings.Default.AppNamePre + @" " + Properties.Settings.Default.AppName;
         }
+
     }
 }

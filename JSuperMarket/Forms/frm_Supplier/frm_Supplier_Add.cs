@@ -1,43 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+using JSuperMarket.Forms.frm_Base;
 
 namespace JSuperMarket.frm_Supplier
 {
-    public partial class frm_Supplier_Add : JSuperMarket.frm_base_AddData
+    public partial class frm_Supplier_Add : FrmBaseAddData
     {
         public frm_Supplier_Add()
         {
             InitializeComponent();
         }
 
-        private void frm_Supplier_Add_Load(object sender, EventArgs e)
+        private void FrmSupplierAddLoad(object sender, EventArgs e)
         {
 
         }
 
-        private void jscClose1_Click(object sender, EventArgs e)
+        private void JSCClose1Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
-        private void jscAdd1_Click(object sender, EventArgs e)
+        private void JSCAdd1Click(object sender, EventArgs e)
         {
             if (jscTextBox1.Text == "")
                 return;
 
-            frm_Supplier_Class RelatedClass = new frm_Supplier_Class();
-            RelatedClass._SName = jscTextBox1.Text;
-            RelatedClass._SVisitor = jscTextBox2.Text;
-            RelatedClass._SAddress = jscTextBox3.Text;
-            RelatedClass._STel = jscTextBox4.Text;
-            RelatedClass._SDesc = jscTextBox5.Text;
-            RelatedClass.DBAdd();
-            ((frm_Supplier)this.Owner).UpdateDateGrid();
+            var relatedClass = new FrmSupplierClass();
+            relatedClass.SName = jscTextBox1.Text;
+            relatedClass.SVisitor = jscTextBox2.Text;
+            relatedClass.SAddress = jscTextBox3.Text;
+            relatedClass.STel = jscTextBox4.Text;
+            relatedClass.SDesc = jscTextBox5.Text;
+            relatedClass.DBAdd();
+            ((frm_Supplier)Owner).UpdateDateGrid();
             // above code update data grid view in main form
             jscTextBox1.Text = "";
             jscTextBox2.Text = "";

@@ -1,0 +1,450 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:Rpt_Sales/f:Rpt_Sales_Class.cs" caret="272" fromTop="11" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.cs" caret="23427" fromTop="12" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="4918" fromTop="7" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_MainForm.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:JSDataAccess.cs" caret="638" fromTop="21" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/f:app.config" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/d:vsData/f:app.config" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:Juc_MainMenu.cs" caret="760" fromTop="20" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:Juc_MainMenu.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.cs" caret="773" fromTop="17" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/f:Settings.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Setting.cs" caret="1705" fromTop="13" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_MainForm.cs" caret="466" fromTop="14" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/f:Program.cs" caret="418" fromTop="16" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_Login_Class.cs" caret="650" fromTop="20" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_Login.cs" caret="3398" fromTop="33" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category_Class.cs" caret="1739" fromTop="24" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category_Add.cs" caret="538" fromTop="15" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category.cs" caret="1058" fromTop="17" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category_Edit.cs" caret="403" fromTop="7" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Customers/f:frm_Customers.cs" caret="1254" fromTop="17" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Customers/f:frm_Customers_Add.cs" caret="1061" fromTop="14" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Customers/f:frm_Customers_Edit.cs" caret="527" fromTop="6" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Units/f:frm_Units_Edit.cs" caret="398" fromTop="9" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Supplier/f:frm_Supplier.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Supplier/f:frm_Supplier_Edit.cs" caret="510" fromTop="15" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:JSControls.cs" caret="3865" fromTop="19" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Products/f:frm_Products_Add.cs" caret="5701" fromTop="22" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_AddData.cs" caret="5995" fromTop="17" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.cs" caret="701" fromTop="15" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Setting.cs" caret="1545" fromTop="21" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:Rpt_Sales/f:Rpt_Sales_Class.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:Rpt_Sales/f:frm_Sales_Report.cs" caret="10675" fromTop="21" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="5476" fromTop="15" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="5606" fromTop="20" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="6181" fromTop="26" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.cs" caret="23617" fromTop="19" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.cs" caret="23617" fromTop="10" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.cs" caret="23998" fromTop="13" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="5660" fromTop="8" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales.cs" caret="23427" fromTop="12" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Sales/f:frm_Sales_Class.cs" caret="6218" fromTop="7" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_MainForm.cs" caret="4686" fromTop="27" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_MainForm.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.cs" caret="875" fromTop="13" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_base_ShowData.cs" caret="889" fromTop="13" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:Juc_MainMenu.cs" caret="16466" fromTop="19" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:Juc_MainMenu.cs" caret="991" fromTop="17" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Utility/f:Juc_MainMenu.Designer.cs" caret="0" fromTop="0" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Base/f:frm_Login_Class.cs" caret="960" fromTop="20" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category.cs" caret="1748" fromTop="9" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category.cs" caret="847" fromTop="10" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category.cs" caret="8037" fromTop="13" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Category/f:frm_Category_Edit.cs" caret="903" fromTop="35" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Products/f:frm_Products_Add.cs" caret="286" fromTop="5" />
+      <File id="3356E13C-5550-41FF-9EF2-C0C64E1C1790/d:Forms/d:frm_Products/f:frm_Products_Add.cs" caret="4152" fromTop="15" />
+    </RecentEdits>
+  </RecentFiles>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="e" priority="703" />
+      <Item value="return" priority="735" />
+      <Item value="MessageBox`0" priority="454" />
+      <Item value="jscDataGrid1" priority="341" />
+      <Item value="null" priority="63" />
+      <Item value="true" priority="383" />
+      <Item value="new" priority="159" />
+      <Item value="frm_Category" priority="26" />
+      <Item value="frm_Products" priority="58" />
+      <Item value="frm_Products_Add" priority="22" />
+      <Item value="frmaddproduct" priority="63" />
+      <Item value="frm_Products_Add`0" priority="26" />
+      <Item value="private" priority="63" />
+      <Item value="void" priority="159" />
+      <Item value="else" priority="319" />
+      <Item value="DataColumn`0" priority="31" />
+      <Item value="DataTable`0" priority="90" />
+      <Item value="dt" priority="63" />
+      <Item value="Validate`0" priority="31" />
+      <Item value="tVar" priority="32" />
+      <Item value="newColumn" priority="58" />
+      <Item value="DataGridView`0" priority="31" />
+      <Item value="Convert`0" priority="544" />
+      <Item value="int" priority="447" />
+      <Item value="totalsaleforrow" priority="127" />
+      <Item value="#define" priority="31" />
+      <Item value="if" priority="671" />
+      <Item value="_currentRow" priority="127" />
+      <Item value="index" priority="63" />
+      <Item value="sender" priority="31" />
+      <Item value="categoryID" priority="31" />
+      <Item value="DbType`0" priority="63" />
+      <Item value="Container" priority="31" />
+      <Item value="break" priority="31" />
+      <Item value="catid" priority="31" />
+      <Item value="try" priority="383" />
+      <Item value="Exception`0" priority="63" />
+      <Item value="pid" priority="31" />
+      <Item value="out" priority="31" />
+      <Item value="r" priority="31" />
+      <Item value="MessageBoxButtons`0" priority="31" />
+      <Item value="msgtxt" priority="31" />
+      <Item value="MessageBoxIcon`0" priority="31" />
+      <Item value="MessageBoxDefaultButton`0" priority="31" />
+      <Item value="result" priority="96" />
+      <Item value="No" priority="16" />
+      <Item value="Owner" priority="89" />
+      <Item value="FrmProducts`0" priority="82" />
+      <Item value="jscLabel2" priority="31" />
+      <Item value="_userCode" priority="63" />
+      <Item value="jscTimer1" priority="223" />
+      <Item value="jscMessage" priority="63" />
+      <Item value="MaxTickTimes" priority="31" />
+      <Item value="jsctxtDate" priority="31" />
+      <Item value="jsctxtUser" priority="95" />
+      <Item value="txtuser" priority="63" />
+      <Item value="_index2" priority="30" />
+      <Item value="t" priority="63" />
+      <Item value="Clone`0" priority="26" />
+      <Item value="Utility" priority="29" />
+      <Item value="Form1" priority="25" />
+      <Item value="_addNum" priority="272" />
+      <Item value="_isaddNum" priority="95" />
+      <Item value="_inAddStatus" priority="63" />
+      <Item value="false" priority="255" />
+      <Item value="string" priority="255" />
+      <Item value="decimal" priority="31" />
+      <Item value="this" priority="32" />
+      <Item value="Forms" priority="144" />
+      <Item value="frm_Base" priority="26" />
+      <Item value="FrmMainForm`0" priority="26" />
+      <Item value="frm_Sales" priority="55" />
+      <Item value="FrmSales`0" priority="58" />
+      <Item value="FrmSales" priority="29" />
+      <Item value="FrmProducts" priority="29" />
+      <Item value="Close`0" priority="122" />
+      <Item value="Show`0" priority="31" />
+      <Item value="public" priority="95" />
+      <Item value="get" priority="32" />
+      <Item value="barcode" priority="63" />
+      <Item value="value" priority="31" />
+      <Item value="jsBarCodeBox1" priority="63" />
+      <Item value="Barcode" priority="31" />
+      <Item value="Data" priority="26" />
+      <Item value="Sid" priority="31" />
+      <Item value="PDesc" priority="58" />
+      <Item value="Pid" priority="31" />
+      <Item value="PurchaseID" priority="117" />
+      <Item value="SecondTable" priority="31" />
+      <Item value="jscComboBox1" priority="128" />
+      <Item value="frm_Category_Class`0" priority="31" />
+      <Item value="frm_Purchase" priority="63" />
+      <Item value="FrmPurchaseClass`0" priority="26" />
+      <Item value="FrmPurchaseClass" priority="29" />
+      <Item value="jscTextBox1" priority="63" />
+      <Item value="FrmPurchase`0" priority="26" />
+      <Item value="jscCmbSupplier" priority="31" />
+      <Item value="PCount" priority="58" />
+      <Item value="Productid" priority="58" />
+      <Item value="JSCAdd1Click`0" priority="26" />
+      <Item value="PPrice" priority="31" />
+      <Item value="relatedClass" priority="319" />
+      <Item value="PsPrice" priority="31" />
+      <Item value="PDiscount" priority="31" />
+      <Item value="jsclblSupplier" priority="31" />
+      <Item value="jscTextBox3" priority="90" />
+      <Item value="editForm" priority="63" />
+      <Item value="tblname" priority="31" />
+      <Item value="_jsda" priority="95" />
+      <Item value="_relatedClass" priority="219" />
+      <Item value="_cmd" priority="63" />
+      <Item value="Identity" priority="63" />
+      <Item value="var" priority="95" />
+      <Item value="bool" priority="63" />
+      <Item value="identity" priority="31" />
+      <Item value="tmp" priority="31" />
+      <Item value="FrmSalesClass" priority="29" />
+      <Item value="btnCredit" priority="31" />
+      <Item value="lblFormTitle" priority="63" />
+      <Item value="Environment`0" priority="58" />
+      <Item value="jscCmbCustomers" priority="59" />
+      <Item value="r.Rpt_Sales" priority="28" />
+      <Item value="Rpt_Sales" priority="111" />
+      <Item value="FrmRptClass" priority="29" />
+      <Item value="RptSalesClass`0" priority="53" />
+      <Item value="RptSalesClass" priority="28" />
+      <Item value="FrmSalesReport" priority="25" />
+      <Item value="System" priority="63" />
+      <Item value="Windows" priority="53" />
+      <Item value="jscCmbCategory" priority="122" />
+      <Item value="Properties" priority="63" />
+      <Item value="Settings`0" priority="53" />
+      <Item value="jscTxtAppname" priority="31" />
+      <Item value="jscCmbProducts" priority="63" />
+      <Item value="FrmSalesSetting" priority="25" />
+      <Item value="frmSaleSetting" priority="31" />
+      <Item value="MemberwiseClone`0" priority="31" />
+      <Item value="Text" priority="31" />
+      <Item value="String`0" priority="26" />
+      <Item value="date" priority="31" />
+      <Item value="TargetDate" priority="31" />
+      <Item value="DateTime`0" priority="63" />
+      <Item value="dateTimePicker1" priority="58" />
+      <Item value="year" priority="63" />
+      <Item value="month" priority="31" />
+      <Item value="day" priority="31" />
+      <Item value="JscTxtTotalSale" priority="31" />
+      <Item value="jscDataGrid2" priority="31" />
+      <Item value="Test1" priority="29" />
+      <Item value="frmtest" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBox">
+      <Item value="Show`0" priority="404" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSCDataGrid">
+      <Item value="Rows" priority="80" />
+      <Item value="RowCount" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellCancelEventArgs">
+      <Item value="RowIndex" priority="80" />
+      <Item value="ColumnIndex" priority="26" />
+      <Item value="Cancel" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewRow">
+      <Item value="Cells" priority="53" />
+      <Item value="Index" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCell">
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="323" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewRowCollection">
+      <Item value="Remove`0" priority="26" />
+      <Item value="RemoveAt`0" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.frm_Products.frm_Products_Add">
+      <Item value="ShowDialog`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt32`0" priority="432" />
+      <Item value="ToChar`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellValidatingEventArgs">
+      <Item value="ColumnIndex" priority="26" />
+      <Item value="RowIndex" priority="26" />
+      <Item value="FormattedValue" priority="107" />
+      <Item value="Cancel" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellEventArgs">
+      <Item value="ColumnIndex" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataTable">
+      <Item value="RowChanged" priority="26" />
+      <Item value="Rows" priority="135" />
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Exception">
+      <Item value="Data" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="TryParse`0" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxButtons">
+      <Item value="YesNo" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxIcon">
+      <Item value="Question" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.MessageBoxDefaultButton">
+      <Item value="Button2" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DialogResult">
+      <Item value="Yes" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Form">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@JSuperMarket.frm_Products.FrmProducts">
+      <Item value="ActiveForm" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSCTimer">
+      <Item value="TickTimes" priority="135" />
+      <Item value="Interval" priority="26" />
+      <Item value="Tick" priority="26" />
+      <Item value="MaxTickTimes" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Length" priority="80" />
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Net.Dns">
+      <Item value="GetHostEntry`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.KeyPressEventArgs">
+      <Item value="KeyChar" priority="107" />
+      <Item value="Handled" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Char">
+      <Item value="ToString`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.frm_Base.FrmMainForm">
+      <Item value="Hide`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Empty" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSBarCodeBox">
+      <Item value="Text" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.frm_Products.FrmProductsAdd">
+      <Item value="Barcode" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewComboBoxColumn">
+      <Item value="DefaultCellStyle" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DataGridViewCellStyle">
+      <Item value="Font" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@JSuperMarket.Forms.frm_Sales.FrmSales">
+      <Item value="DefaultFont" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSCComboBox">
+      <Item value="ValueMember" priority="27" />
+      <Item value="SelectedValue" priority="55" />
+      <Item value="SValue" priority="81" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.frm_Purchase.FrmPurchaseClass">
+      <Item value="Sid" priority="54" />
+      <Item value="PDesc" priority="27" />
+      <Item value="DBSupplierList`0" priority="27" />
+      <Item value="UpdateProducts`0" priority="26" />
+      <Item value="PCount" priority="26" />
+      <Item value="Productid" priority="54" />
+      <Item value="PsPrice" priority="27" />
+      <Item value="PDiscount" priority="27" />
+      <Item value="DBReturnIdentity`0" priority="26" />
+      <Item value="DBAddToSecondary`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSCTextBox">
+      <Item value="Text" priority="26" />
+      <Item value="Focus`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Drawing.Color">
+      <Item value="Transparent" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.frm_Products.FrmProductsEdit">
+      <Item value="CanFocus" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Utility.JSDataAccess">
+      <Item value="IsExpress" priority="26" />
+      <Item value="ShowFriendlyMessage" priority="26" />
+      <Item value="Identity" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.frm_Sales.FrmSalesClass">
+      <Item value="DBReturnIdentity`0" priority="26" />
+      <Item value="Credit" priority="26" />
+      <Item value="PCount" priority="27" />
+      <Item value="PsPrice" priority="27" />
+      <Item value="LastError" priority="53" />
+      <Item value="DBSalesReportByDate`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SqlClient.SqlCommand">
+      <Item value="ExecuteScalar`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.Button">
+      <Item value="Text" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.JSCLabel">
+      <Item value="Text" priority="53" />
+      <Item value="Tag" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Environment">
+      <Item value="NewLine" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.Rpt_Sales.RptSalesClass">
+      <Item value="DBSelect`0" priority="26" />
+      <Item value="LastError" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Utility.JSCComboBox">
+      <Item value="SValue" priority="134" />
+      <Item value="SelectedValue" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@JSuperMarket.Properties.Settings">
+      <Item value="Default" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Properties.Settings">
+      <Item value="AppName" priority="80" />
+      <Item value="Sales_DefaultProduct" priority="26" />
+      <Item value="Sales_DefaultCategory" priority="22" />
+      <Item value="Save`0" priority="26" />
+      <Item value="AppNamePre" priority="22" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Utility.JSCTextBox">
+      <Item value="Text" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Forms.frm_Sales.FrmSalesSetting">
+      <Item value="ShowDialog`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Windows.Forms.DateTimePicker">
+      <Item value="Value" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.DateTime">
+      <Item value="Year" priority="26" />
+      <Item value="Month" priority="26" />
+      <Item value="Day" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Utility.JSCnTextBox">
+      <Item value="Text" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Utility.JSCDataGrid">
+      <Item value="Sort`0" priority="50" />
+      <Item value="RowCount" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:JSuperMarket.Test1">
+      <Item value="ShowDialog`0" priority="26" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+</Configuration>

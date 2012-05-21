@@ -175,6 +175,7 @@
             this.jsBarCodeBox1.TabIndex = 31;
             this.jsBarCodeBox1.TabStop = false;
             this.jsBarCodeBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.jsBarCodeBox1.TextChanged += new System.EventHandler(this.jsBarCodeBox1_TextChanged);
             // 
             // jscComboBox3
             // 
